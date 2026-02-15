@@ -107,41 +107,129 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
         }
         
+        .photo-gallery-container {
+            position: relative;
+        }
+        
         .photo-gallery {
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
-            height: 180px;
+            scrollbar-width: none;
+            height: 220px;
+        }
+        
+        @media (min-width: 640px) {
+            .photo-gallery {
+                height: 260px;
+            }
         }
         
         .photo-gallery::-webkit-scrollbar {
-            height: 4px;
-        }
-        
-        .photo-gallery::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        
-        .photo-gallery::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 4px;
+            display: none;
         }
         
         .photo-gallery img {
-            height: 180px;
-            min-width: 100%;
+            height: 100%;
+            width: 100%;
+            flex-shrink: 0;
             object-fit: cover;
             scroll-snap-align: start;
         }
         
-        .photo-gallery.multi-photo img {
-            min-width: 85%;
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.85);
+            border: none;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+            z-index: 10;
+        }
+        
+        .gallery-nav:hover {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .gallery-nav.prev {
+            left: 8px;
+        }
+        
+        .gallery-nav.next {
+            right: 8px;
+        }
+        
+        .gallery-nav svg {
+            width: 20px;
+            height: 20px;
+            fill: #2c3e50;
+        }
+        
+        .gallery-dots {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 10;
+        }
+        
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transition: background 0.3s;
+        }
+        
+        .dot.active {
+            background: rgba(255, 255, 255, 0.95);
+            width: 8px;
+            height: 8px;
+        }
+        
+        .single-photo .gallery-nav,
+        .single-photo .gallery-dots {
+            display: none;
         }
         
         .listing-content {
             padding: 1.25rem;
+        }
+        
+        .type-badge {
+            display: inline-block;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .type-badge.house {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .type-badge.townhouse {
+            background: #3498db;
+            color: white;
+        }
+        
+        .type-badge.apartment {
+            background: #95a5a6;
+            color: white;
         }
         
         .price-section {
@@ -161,11 +249,15 @@
             font-size: 1.2rem;
         }
         
-        .budget-indicator.under {
+        .budget-indicator.sweet-spot {
             color: #27ae60;
         }
         
-        .budget-indicator.over {
+        .budget-indicator.good {
+            color: #f39c12;
+        }
+        
+        .budget-indicator.expensive {
             color: #e74c3c;
         }
         
@@ -290,8 +382,8 @@
                 Total Listings
             </div>
             <div class="stat">
-                <strong>9</strong>
-                Under $1,850/bed
+                <strong>5</strong>
+                Sweet Spot
             </div>
             <div class="stat">
                 <strong>$1,186</strong>
@@ -308,36 +400,35 @@
     
     <div class="container">
         
-        <!-- Listing 1: Belle Fontaine - $1,186/bed -->
+        <!-- Listing 1: Beethoven St - $1,332/bed - HOUSE -->
         <div class="listing-card">
-            <div class="photo-gallery">
-                <img src="https://ssl.cdn-redfin.com/photo/rent/559584b8-af7c-4117-a7c3-8876d1fb2b33/islphoto/genIsl.0_4.webp" alt="Belle Fontaine">
-            </div>
-            <div class="listing-content">
-                <div class="price-section">
-                    <div class="per-bed-price">$1,186/bed</div>
-                    <div class="budget-indicator under">✓</div>
+            <div class="photo-gallery-container">
+                <div class="photo-gallery" data-gallery="beethoven">
+                    <img src="https://images.craigslist.org/00h0h_lAvt5IhVZAE_0CI0t2_600x450.jpg" alt="Beethoven St">
+                    <img src="https://images.craigslist.org/00w0w_gzgwb038Ltg_0CI0t2_600x450.jpg" alt="Beethoven St">
+                    <img src="https://images.craigslist.org/00R0R_cj5PqdeyAjS_0CI0t2_600x450.jpg" alt="Beethoven St">
+                    <img src="https://images.craigslist.org/00808_aToef7ls4E4_0CI0t2_600x450.jpg" alt="Beethoven St">
+                    <img src="https://images.craigslist.org/00909_2d3kzXlSRQ6_0CI0t2_600x450.jpg" alt="Beethoven St">
                 </div>
-                <div class="price-details">$3,557/mo total · 3bd/2ba · 1,447 sqft</div>
-                <div class="address">Belle Fontaine, Marina del Rey</div>
-                <div class="source-badge redfin">Redfin</div>
-                <a href="https://www.redfin.com/CA/Marina-Del-Rey/Belle-Fontaine/apartment/177431580" class="view-btn redfin">View Listing →</a>
-            </div>
-        </div>
-        
-        <!-- Listing 2: Beethoven St - $1,332/bed -->
-        <div class="listing-card">
-            <div class="photo-gallery multi-photo">
-                <img src="https://images.craigslist.org/00h0h_lAvt5IhVZAE_0CI0t2_600x450.jpg" alt="Beethoven St">
-                <img src="https://images.craigslist.org/00w0w_gzgwb038Ltg_0CI0t2_600x450.jpg" alt="Beethoven St">
-                <img src="https://images.craigslist.org/00R0R_cj5PqdeyAjS_0CI0t2_600x450.jpg" alt="Beethoven St">
-                <img src="https://images.craigslist.org/00808_aToef7ls4E4_0CI0t2_600x450.jpg" alt="Beethoven St">
-                <img src="https://images.craigslist.org/00909_2d3kzXlSRQ6_0CI0t2_600x450.jpg" alt="Beethoven St">
+                <button class="gallery-nav prev" onclick="scrollGallery('beethoven', -1)">
+                    <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                </button>
+                <button class="gallery-nav next" onclick="scrollGallery('beethoven', 1)">
+                    <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </button>
+                <div class="gallery-dots">
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
             </div>
             <div class="listing-content">
+                <div class="type-badge house">🏠 House</div>
                 <div class="price-section">
                     <div class="per-bed-price">$1,332/bed</div>
-                    <div class="budget-indicator under">✓</div>
+                    <div class="budget-indicator good">○</div>
                 </div>
                 <div class="price-details">$3,995/mo total · 3bd/1ba · 1,100 sqft</div>
                 <div class="address">Beethoven St, Venice/Mar Vista</div>
@@ -347,15 +438,38 @@
             </div>
         </div>
         
-        <!-- Listing 3: 631 Indiana Ave - $1,538/bed (4bd) -->
+        <!-- Listing 2: Belle Fontaine - $1,186/bed - APARTMENT -->
         <div class="listing-card">
-            <div class="photo-gallery">
-                <img src="https://photos.zillowstatic.com/fp/3c8b553feaa067f5ebce226dd80e3e69-p_e.jpg" alt="631 Indiana Ave">
+            <div class="photo-gallery-container single-photo">
+                <div class="photo-gallery" data-gallery="belle">
+                    <img src="https://ssl.cdn-redfin.com/photo/rent/559584b8-af7c-4117-a7c3-8876d1fb2b33/islphoto/genIsl.0_4.webp" alt="Belle Fontaine">
+                </div>
             </div>
             <div class="listing-content">
+                <div class="type-badge apartment">🏢 Apartment</div>
+                <div class="price-section">
+                    <div class="per-bed-price">$1,186/bed</div>
+                    <div class="budget-indicator expensive">⚠</div>
+                </div>
+                <div class="price-details">$3,557/mo total · 3bd/2ba · 1,447 sqft</div>
+                <div class="address">Belle Fontaine, Marina del Rey</div>
+                <div class="source-badge redfin">Redfin</div>
+                <a href="https://www.redfin.com/CA/Marina-Del-Rey/Belle-Fontaine/apartment/177431580" class="view-btn redfin">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Listing 3: 631 Indiana Ave - $1,538/bed (4bd) - APARTMENT -->
+        <div class="listing-card">
+            <div class="photo-gallery-container single-photo">
+                <div class="photo-gallery" data-gallery="indiana631">
+                    <img src="https://photos.zillowstatic.com/fp/3c8b553feaa067f5ebce226dd80e3e69-p_e.jpg" alt="631 Indiana Ave">
+                </div>
+            </div>
+            <div class="listing-content">
+                <div class="type-badge apartment">🏢 Apartment</div>
                 <div class="price-section">
                     <div class="per-bed-price">$1,538/bed</div>
-                    <div class="budget-indicator under">✓</div>
+                    <div class="budget-indicator expensive">⚠</div>
                 </div>
                 <div class="price-details">$6,150/mo total · 4bd/2ba</div>
                 <div class="address">631 Indiana Ave, Venice</div>
@@ -364,15 +478,18 @@
             </div>
         </div>
         
-        <!-- Listing 4: Mirabella - $1,629/bed -->
+        <!-- Listing 4: Mirabella - $1,629/bed - APARTMENT -->
         <div class="listing-card">
-            <div class="photo-gallery">
-                <img src="https://ssl.cdn-redfin.com/photo/rent/0a7491b0-1074-4645-995a-dc4b0a36194f/islphoto/genIsl.0_63.webp" alt="Mirabella">
+            <div class="photo-gallery-container single-photo">
+                <div class="photo-gallery" data-gallery="mirabella">
+                    <img src="https://ssl.cdn-redfin.com/photo/rent/0a7491b0-1074-4645-995a-dc4b0a36194f/islphoto/genIsl.0_63.webp" alt="Mirabella">
+                </div>
             </div>
             <div class="listing-content">
+                <div class="type-badge apartment">🏢 Apartment</div>
                 <div class="price-section">
                     <div class="per-bed-price">$1,629/bed</div>
-                    <div class="budget-indicator under">✓</div>
+                    <div class="budget-indicator expensive">⚠</div>
                 </div>
                 <div class="price-details">$4,887/mo total · 3bd/2ba · 1,685 sqft</div>
                 <div class="address">Mirabella, 13701 Marina Pointe Dr, MDR</div>
@@ -381,15 +498,18 @@
             </div>
         </div>
         
-        <!-- Listing 5: C1 by CLG - $1,644/bed -->
+        <!-- Listing 5: C1 by CLG - $1,644/bed - APARTMENT -->
         <div class="listing-card">
-            <div class="photo-gallery">
-                <img src="https://ssl.cdn-redfin.com/photo/rent/e3f5184c-277f-4f81-a909-bc76dcda6263/islphoto/genIsl.0_3.webp" alt="C1 by CLG">
+            <div class="photo-gallery-container single-photo">
+                <div class="photo-gallery" data-gallery="c1">
+                    <img src="https://ssl.cdn-redfin.com/photo/rent/e3f5184c-277f-4f81-a909-bc76dcda6263/islphoto/genIsl.0_3.webp" alt="C1 by CLG">
+                </div>
             </div>
             <div class="listing-content">
+                <div class="type-badge apartment">🏢 Apartment</div>
                 <div class="price-section">
                     <div class="per-bed-price">$1,644/bed</div>
-                    <div class="budget-indicator under">✓</div>
+                    <div class="budget-indicator expensive">⚠</div>
                 </div>
                 <div class="price-details">$4,932/mo total · 3bd/2ba · 1,130 sqft</div>
                 <div class="address">C1 by CLG, Marina del Rey</div>
@@ -398,15 +518,18 @@
             </div>
         </div>
         
-        <!-- Listing 6: 354-356 4th Ave - $1,665/bed -->
+        <!-- Listing 6: 354-356 4th Ave - $1,665/bed - APARTMENT -->
         <div class="listing-card">
-            <div class="photo-gallery">
-                <img src="https://photos.zillowstatic.com/fp/72f55c1e920e8a17f76e6ae21d59012c-p_e.jpg" alt="354-356 4th Ave">
+            <div class="photo-gallery-container single-photo">
+                <div class="photo-gallery" data-gallery="4thave">
+                    <img src="https://photos.zillowstatic.com/fp/72f55c1e920e8a17f76e6ae21d59012c-p_e.jpg" alt="354-356 4th Ave">
+                </div>
             </div>
             <div class="listing-content">
+                <div class="type-badge apartment">🏢 Apartment</div>
                 <div class="price-section">
                     <div class="per-bed-price">$1,665/bed</div>
-                    <div class="budget-indicator under">✓</div>
+                    <div class="budget-indicator expensive">⚠</div>
                 </div>
                 <div class="price-details">$4,995/mo total · 3bd/2ba · 1,100 sqft</div>
                 <div class="address">354-356 4th Ave #1, Venice</div>
@@ -415,15 +538,18 @@
             </div>
         </div>
         
-        <!-- Listing 7: Jefferson at Marina del Rey - $1,700/bed -->
+        <!-- Listing 7: Jefferson at Marina del Rey - $1,700/bed - APARTMENT -->
         <div class="listing-card">
-            <div class="photo-gallery">
-                <img src="https://ssl.cdn-redfin.com/photo/rent/b04e03c4-d0f7-4db4-85f5-aaa497cfe691/islphoto/genIsl.0_4.webp" alt="Jefferson">
+            <div class="photo-gallery-container single-photo">
+                <div class="photo-gallery" data-gallery="jefferson">
+                    <img src="https://ssl.cdn-redfin.com/photo/rent/b04e03c4-d0f7-4db4-85f5-aaa497cfe691/islphoto/genIsl.0_4.webp" alt="Jefferson">
+                </div>
             </div>
             <div class="listing-content">
+                <div class="type-badge apartment">🏢 Apartment</div>
                 <div class="price-section">
                     <div class="per-bed-price">$1,700/bed</div>
-                    <div class="budget-indicator under">✓</div>
+                    <div class="budget-indicator expensive">⚠</div>
                 </div>
                 <div class="price-details">$5,099/mo total · 3bd/2ba · 1,628 sqft</div>
                 <div class="address">Jefferson at Marina del Rey, 3221 Carter Ave</div>
@@ -432,15 +558,18 @@
             </div>
         </div>
         
-        <!-- Listing 8: Tribeca Urban Apartments - $1,775/bed -->
+        <!-- Listing 8: Tribeca Urban Apartments - $1,775/bed - APARTMENT -->
         <div class="listing-card">
-            <div class="photo-gallery">
-                <img src="https://ssl.cdn-redfin.com/photo/rent/fa5f92a8-3b76-4857-b027-016bac1c67f8/islphoto/genIsl.0_1.webp" alt="Tribeca">
+            <div class="photo-gallery-container single-photo">
+                <div class="photo-gallery" data-gallery="tribeca">
+                    <img src="https://ssl.cdn-redfin.com/photo/rent/fa5f92a8-3b76-4857-b027-016bac1c67f8/islphoto/genIsl.0_1.webp" alt="Tribeca">
+                </div>
             </div>
             <div class="listing-content">
+                <div class="type-badge apartment">🏢 Apartment</div>
                 <div class="price-section">
                     <div class="per-bed-price">$1,775/bed</div>
-                    <div class="budget-indicator under">✓</div>
+                    <div class="budget-indicator expensive">⚠</div>
                 </div>
                 <div class="price-details">$5,325/mo total · 3bd/3ba · 1,365 sqft</div>
                 <div class="address">Tribeca Urban Apartments, Marina del Rey</div>
@@ -449,15 +578,18 @@
             </div>
         </div>
         
-        <!-- Listing 9: 634 Flower Ave - $1,798/bed -->
+        <!-- Listing 9: 634 Flower Ave - $1,798/bed - APARTMENT -->
         <div class="listing-card">
-            <div class="photo-gallery">
-                <img src="https://photos.zillowstatic.com/fp/6bfa866e2704d9354957cc3381c44996-p_e.jpg" alt="634 Flower Ave">
+            <div class="photo-gallery-container single-photo">
+                <div class="photo-gallery" data-gallery="flower">
+                    <img src="https://photos.zillowstatic.com/fp/6bfa866e2704d9354957cc3381c44996-p_e.jpg" alt="634 Flower Ave">
+                </div>
             </div>
             <div class="listing-content">
+                <div class="type-badge apartment">🏢 Apartment</div>
                 <div class="price-section">
                     <div class="per-bed-price">$1,798/bed</div>
-                    <div class="budget-indicator over">✗</div>
+                    <div class="budget-indicator expensive">⚠</div>
                 </div>
                 <div class="price-details">$5,395/mo total · 3bd/2ba</div>
                 <div class="address">634 Flower Ave #2, Venice</div>
@@ -466,15 +598,18 @@
             </div>
         </div>
         
-        <!-- Listing 10: Lincoln Place - $1,816/bed -->
+        <!-- Listing 10: Lincoln Place - $1,816/bed - APARTMENT -->
         <div class="listing-card">
-            <div class="photo-gallery">
-                <img src="https://photos.zillowstatic.com/fp/40da5f16c749465850e632c5a6716f78-p_e.jpg" alt="Lincoln Place">
+            <div class="photo-gallery-container single-photo">
+                <div class="photo-gallery" data-gallery="lincoln">
+                    <img src="https://photos.zillowstatic.com/fp/40da5f16c749465850e632c5a6716f78-p_e.jpg" alt="Lincoln Place">
+                </div>
             </div>
             <div class="listing-content">
+                <div class="type-badge apartment">🏢 Apartment</div>
                 <div class="price-section">
                     <div class="per-bed-price">$1,816/bed</div>
-                    <div class="budget-indicator over">✗</div>
+                    <div class="budget-indicator expensive">⚠</div>
                 </div>
                 <div class="price-details">$5,449/mo total · 3bd/2ba</div>
                 <div class="address">Lincoln Place, 1050 Frederick St, Venice</div>
@@ -483,19 +618,35 @@
             </div>
         </div>
         
-        <!-- Listing 11: Venice Blvd area - $1,817/bed -->
+        <!-- Listing 11: Venice Blvd area - $1,817/bed - HOUSE -->
         <div class="listing-card">
-            <div class="photo-gallery multi-photo">
-                <img src="https://images.craigslist.org/00Z0Z_hkQRh1pXCJG_0cm083_600x450.jpg" alt="Venice Blvd">
-                <img src="https://images.craigslist.org/00V0V_iKk4TouQYK4_0cU08B_600x450.jpg" alt="Venice Blvd">
-                <img src="https://images.craigslist.org/00Y0Y_kEXSEbGy7e_0cU08B_600x450.jpg" alt="Venice Blvd">
-                <img src="https://images.craigslist.org/00p0p_f3BQmR0Nrp1_0cU08B_600x450.jpg" alt="Venice Blvd">
-                <img src="https://images.craigslist.org/01717_lr2UCAbyvHN_0cU08B_600x450.jpg" alt="Venice Blvd">
+            <div class="photo-gallery-container">
+                <div class="photo-gallery" data-gallery="veniceblvd">
+                    <img src="https://images.craigslist.org/00Z0Z_hkQRh1pXCJG_0cm083_600x450.jpg" alt="Venice Blvd">
+                    <img src="https://images.craigslist.org/00V0V_iKk4TouQYK4_0cU08B_600x450.jpg" alt="Venice Blvd">
+                    <img src="https://images.craigslist.org/00Y0Y_kEXSEbGy7e_0cU08B_600x450.jpg" alt="Venice Blvd">
+                    <img src="https://images.craigslist.org/00p0p_f3BQmR0Nrp1_0cU08B_600x450.jpg" alt="Venice Blvd">
+                    <img src="https://images.craigslist.org/01717_lr2UCAbyvHN_0cU08B_600x450.jpg" alt="Venice Blvd">
+                </div>
+                <button class="gallery-nav prev" onclick="scrollGallery('veniceblvd', -1)">
+                    <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                </button>
+                <button class="gallery-nav next" onclick="scrollGallery('veniceblvd', 1)">
+                    <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </button>
+                <div class="gallery-dots">
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
             </div>
             <div class="listing-content">
+                <div class="type-badge house">🏠 House</div>
                 <div class="price-section">
                     <div class="per-bed-price">$1,817/bed</div>
-                    <div class="budget-indicator over">✗</div>
+                    <div class="budget-indicator expensive">⚠</div>
                 </div>
                 <div class="price-details">$5,450/mo total · 3bd/1ba</div>
                 <div class="address">13263 Venice Blvd, Mar Vista</div>
@@ -505,15 +656,18 @@
             </div>
         </div>
         
-        <!-- Listing 12: Stella - $1,835/bed -->
+        <!-- Listing 12: Stella - $1,835/bed - APARTMENT -->
         <div class="listing-card">
-            <div class="photo-gallery">
-                <img src="https://ssl.cdn-redfin.com/photo/rent/fa5f92a8-3b76-4857-b027-016bac1c67f8/islphoto/genIsl.0_1.webp" alt="Stella">
+            <div class="photo-gallery-container single-photo">
+                <div class="photo-gallery" data-gallery="stella">
+                    <img src="https://ssl.cdn-redfin.com/photo/rent/fa5f92a8-3b76-4857-b027-016bac1c67f8/islphoto/genIsl.0_1.webp" alt="Stella">
+                </div>
             </div>
             <div class="listing-content">
+                <div class="type-badge apartment">🏢 Apartment</div>
                 <div class="price-section">
                     <div class="per-bed-price">$1,835/bed</div>
-                    <div class="budget-indicator over">✗</div>
+                    <div class="budget-indicator expensive">⚠</div>
                 </div>
                 <div class="price-details">$5,504/mo total · 3bd/2ba · 1,406 sqft</div>
                 <div class="address">Stella, Marina del Rey</div>
@@ -522,15 +676,18 @@
             </div>
         </div>
         
-        <!-- Listing 13: 2527 Abbot Kinney - $1,850/bed -->
+        <!-- Listing 13: 2527 Abbot Kinney - $1,850/bed - APARTMENT -->
         <div class="listing-card">
-            <div class="photo-gallery">
-                <img src="https://ssl.cdn-redfin.com/photo/rent/63a52186-d9bd-4f04-a584-655f82486597/islphoto/genIsl.0_1.webp" alt="2527 Abbot Kinney">
+            <div class="photo-gallery-container single-photo">
+                <div class="photo-gallery" data-gallery="abbot">
+                    <img src="https://ssl.cdn-redfin.com/photo/rent/63a52186-d9bd-4f04-a584-655f82486597/islphoto/genIsl.0_1.webp" alt="2527 Abbot Kinney">
+                </div>
             </div>
             <div class="listing-content">
+                <div class="type-badge apartment">🏢 Apartment</div>
                 <div class="price-section">
                     <div class="per-bed-price">$1,850/bed</div>
-                    <div class="budget-indicator over">✗</div>
+                    <div class="budget-indicator expensive">⚠</div>
                 </div>
                 <div class="price-details">$5,550/mo total · 3bd/2ba · 1,400 sqft</div>
                 <div class="address">2527 Abbot Kinney Blvd, Venice</div>
@@ -540,15 +697,18 @@
             </div>
         </div>
         
-        <!-- Listing 14: 531 Indiana Ave - $1,998/bed (4bd) -->
+        <!-- Listing 14: 531 Indiana Ave - $1,998/bed (4bd) - APARTMENT -->
         <div class="listing-card">
-            <div class="photo-gallery">
-                <img src="https://photos.zillowstatic.com/fp/d57267d746a924cd7d9f94bcf13dc69e-p_e.jpg" alt="531 Indiana Ave">
+            <div class="photo-gallery-container single-photo">
+                <div class="photo-gallery" data-gallery="indiana531">
+                    <img src="https://photos.zillowstatic.com/fp/d57267d746a924cd7d9f94bcf13dc69e-p_e.jpg" alt="531 Indiana Ave">
+                </div>
             </div>
             <div class="listing-content">
+                <div class="type-badge apartment">🏢 Apartment</div>
                 <div class="price-section">
                     <div class="per-bed-price">$1,998/bed</div>
-                    <div class="budget-indicator over">✗</div>
+                    <div class="budget-indicator expensive">⚠</div>
                 </div>
                 <div class="price-details">$7,990/mo total · 4bd/4ba · 2,100 sqft</div>
                 <div class="address">531 Indiana Ave #A, Venice</div>
@@ -557,19 +717,35 @@
             </div>
         </div>
         
-        <!-- Listing 15: 2416 Boone Ave - $2,067/bed -->
+        <!-- Listing 15: 2416 Boone Ave - $2,067/bed - HOUSE -->
         <div class="listing-card">
-            <div class="photo-gallery multi-photo">
-                <img src="https://images.craigslist.org/00000_1qEu9Q02PSl_0uY0ne_600x450.jpg" alt="Boone Ave">
-                <img src="https://images.craigslist.org/00F0F_c0730IHT8I0_0uY0ne_600x450.jpg" alt="Boone Ave">
-                <img src="https://images.craigslist.org/00L0L_dzWdi7zMaXX_0ak07K_600x450.jpg" alt="Boone Ave">
-                <img src="https://images.craigslist.org/00J0J_bDcxsC4lBu3_0CI0t2_600x450.jpg" alt="Boone Ave">
-                <img src="https://images.craigslist.org/00303_4uMoxiLu3HN_0uY0ne_600x450.jpg" alt="Boone Ave">
+            <div class="photo-gallery-container">
+                <div class="photo-gallery" data-gallery="boone">
+                    <img src="https://images.craigslist.org/00000_1qEu9Q02PSl_0uY0ne_600x450.jpg" alt="Boone Ave">
+                    <img src="https://images.craigslist.org/00F0F_c0730IHT8I0_0uY0ne_600x450.jpg" alt="Boone Ave">
+                    <img src="https://images.craigslist.org/00L0L_dzWdi7zMaXX_0ak07K_600x450.jpg" alt="Boone Ave">
+                    <img src="https://images.craigslist.org/00J0J_bDcxsC4lBu3_0CI0t2_600x450.jpg" alt="Boone Ave">
+                    <img src="https://images.craigslist.org/00303_4uMoxiLu3HN_0uY0ne_600x450.jpg" alt="Boone Ave">
+                </div>
+                <button class="gallery-nav prev" onclick="scrollGallery('boone', -1)">
+                    <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                </button>
+                <button class="gallery-nav next" onclick="scrollGallery('boone', 1)">
+                    <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </button>
+                <div class="gallery-dots">
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
             </div>
             <div class="listing-content">
+                <div class="type-badge house">🏠 House</div>
                 <div class="price-section">
                     <div class="per-bed-price">$2,067/bed</div>
-                    <div class="budget-indicator over">✗</div>
+                    <div class="budget-indicator good">○</div>
                 </div>
                 <div class="price-details">$6,200/mo total · 3bd/1.5ba</div>
                 <div class="address">2416 Boone Ave, Venice</div>
@@ -579,19 +755,35 @@
             </div>
         </div>
         
-        <!-- Listing 16: Mariners Village - $2,089/bed -->
+        <!-- Listing 16: Mariners Village - $2,089/bed - APARTMENT -->
         <div class="listing-card">
-            <div class="photo-gallery multi-photo">
-                <img src="https://ssl.cdn-redfin.com/photo/rent/22ea8095-32ae-452c-8703-31f3b13da542/islphoto/genIsl.0_8.webp" alt="Mariners Village">
-                <img src="https://images.craigslist.org/00M0M_5PHH8ioLBdd_08I06i_600x450.jpg" alt="Mariners Village">
-                <img src="https://images.craigslist.org/00r0r_g0O81pnXOA3_08I06i_600x450.jpg" alt="Mariners Village">
-                <img src="https://images.craigslist.org/00G0G_4q3NzP6h2yN_08I06i_600x450.jpg" alt="Mariners Village">
-                <img src="https://images.craigslist.org/00606_hAp3UpHqqCf_08I06i_600x450.jpg" alt="Mariners Village">
+            <div class="photo-gallery-container">
+                <div class="photo-gallery" data-gallery="mariners">
+                    <img src="https://ssl.cdn-redfin.com/photo/rent/22ea8095-32ae-452c-8703-31f3b13da542/islphoto/genIsl.0_8.webp" alt="Mariners Village">
+                    <img src="https://images.craigslist.org/00M0M_5PHH8ioLBdd_08I06i_600x450.jpg" alt="Mariners Village">
+                    <img src="https://images.craigslist.org/00r0r_g0O81pnXOA3_08I06i_600x450.jpg" alt="Mariners Village">
+                    <img src="https://images.craigslist.org/00G0G_4q3NzP6h2yN_08I06i_600x450.jpg" alt="Mariners Village">
+                    <img src="https://images.craigslist.org/00606_hAp3UpHqqCf_08I06i_600x450.jpg" alt="Mariners Village">
+                </div>
+                <button class="gallery-nav prev" onclick="scrollGallery('mariners', -1)">
+                    <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                </button>
+                <button class="gallery-nav next" onclick="scrollGallery('mariners', 1)">
+                    <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </button>
+                <div class="gallery-dots">
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
             </div>
             <div class="listing-content">
+                <div class="type-badge apartment">🏢 Apartment</div>
                 <div class="price-section">
                     <div class="per-bed-price">$2,089/bed</div>
-                    <div class="budget-indicator over">✗</div>
+                    <div class="budget-indicator good">○</div>
                 </div>
                 <div class="price-details">$6,266/mo total · 3bd/2ba · 1,408 sqft</div>
                 <div class="address">Mariners Village, 4600 Via Marina, MDR</div>
@@ -601,15 +793,18 @@
             </div>
         </div>
         
-        <!-- Listing 17: Breakwater - $2,097/bed -->
+        <!-- Listing 17: Breakwater - $2,097/bed - APARTMENT -->
         <div class="listing-card">
-            <div class="photo-gallery">
-                <img src="https://ssl.cdn-redfin.com/photo/rent/1c1902d3-5bf3-4cd9-ab35-40c349c600ca/islphoto/genIsl.0_4.webp" alt="Breakwater">
+            <div class="photo-gallery-container single-photo">
+                <div class="photo-gallery" data-gallery="breakwater">
+                    <img src="https://ssl.cdn-redfin.com/photo/rent/1c1902d3-5bf3-4cd9-ab35-40c349c600ca/islphoto/genIsl.0_4.webp" alt="Breakwater">
+                </div>
             </div>
             <div class="listing-content">
+                <div class="type-badge apartment">🏢 Apartment</div>
                 <div class="price-section">
                     <div class="per-bed-price">$2,097/bed</div>
-                    <div class="budget-indicator over">✗</div>
+                    <div class="budget-indicator good">○</div>
                 </div>
                 <div class="price-details">$6,291/mo total · 3bd/2ba · 1,875 sqft</div>
                 <div class="address">Breakwater at Marina del Rey</div>
@@ -618,15 +813,18 @@
             </div>
         </div>
         
-        <!-- Listing 18: 528-530 Westminster - $2,167/bed -->
+        <!-- Listing 18: 528-530 Westminster - $2,167/bed - APARTMENT -->
         <div class="listing-card">
-            <div class="photo-gallery">
-                <img src="https://photos.zillowstatic.com/fp/fbb368eb726d0417fe9c1904eab61a9c-p_e.jpg" alt="Westminster Ave">
+            <div class="photo-gallery-container single-photo">
+                <div class="photo-gallery" data-gallery="westminster">
+                    <img src="https://photos.zillowstatic.com/fp/fbb368eb726d0417fe9c1904eab61a9c-p_e.jpg" alt="Westminster Ave">
+                </div>
             </div>
             <div class="listing-content">
+                <div class="type-badge apartment">🏢 Apartment</div>
                 <div class="price-section">
                     <div class="per-bed-price">$2,167/bed</div>
-                    <div class="budget-indicator over">✗</div>
+                    <div class="budget-indicator good">○</div>
                 </div>
                 <div class="price-details">$6,500/mo total · 3bd/2ba · 1,350 sqft</div>
                 <div class="address">528-530 Westminster Ave, Venice</div>
@@ -635,19 +833,35 @@
             </div>
         </div>
         
-        <!-- Listing 19: 4631 Alla Rd - $2,415/bed -->
+        <!-- Listing 19: 4631 Alla Rd - $2,415/bed - TOWNHOUSE -->
         <div class="listing-card">
-            <div class="photo-gallery multi-photo">
-                <img src="https://images.craigslist.org/00202_f1G1qoOcfIF_0x20m1_600x450.jpg" alt="Alla Rd">
-                <img src="https://images.craigslist.org/00Q0Q_gdFV28IyNcp_0x20m1_600x450.jpg" alt="Alla Rd">
-                <img src="https://images.craigslist.org/00s0s_cMbXBa3ksA4_0x20m1_600x450.jpg" alt="Alla Rd">
-                <img src="https://images.craigslist.org/00D0D_92BggzLFNfk_0x20m1_600x450.jpg" alt="Alla Rd">
-                <img src="https://images.craigslist.org/00606_2DXw1vadAPn_0x20m1_600x450.jpg" alt="Alla Rd">
+            <div class="photo-gallery-container">
+                <div class="photo-gallery" data-gallery="alla">
+                    <img src="https://images.craigslist.org/00202_f1G1qoOcfIF_0x20m1_600x450.jpg" alt="Alla Rd">
+                    <img src="https://images.craigslist.org/00Q0Q_gdFV28IyNcp_0x20m1_600x450.jpg" alt="Alla Rd">
+                    <img src="https://images.craigslist.org/00s0s_cMbXBa3ksA4_0x20m1_600x450.jpg" alt="Alla Rd">
+                    <img src="https://images.craigslist.org/00D0D_92BggzLFNfk_0x20m1_600x450.jpg" alt="Alla Rd">
+                    <img src="https://images.craigslist.org/00606_2DXw1vadAPn_0x20m1_600x450.jpg" alt="Alla Rd">
+                </div>
+                <button class="gallery-nav prev" onclick="scrollGallery('alla', -1)">
+                    <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                </button>
+                <button class="gallery-nav next" onclick="scrollGallery('alla', 1)">
+                    <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </button>
+                <div class="gallery-dots">
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
             </div>
             <div class="listing-content">
+                <div class="type-badge townhouse">🏘️ Townhouse</div>
                 <div class="price-section">
                     <div class="per-bed-price">$2,415/bed</div>
-                    <div class="budget-indicator over">✗</div>
+                    <div class="budget-indicator good">○</div>
                 </div>
                 <div class="price-details">$7,245/mo total · 3bd/2.5ba</div>
                 <div class="address">4631 Alla Rd #8, MDR (Villa Vallarta)</div>
@@ -657,19 +871,35 @@
             </div>
         </div>
         
-        <!-- Listing 20: Venice Ave & Lincoln - $2,749/bed (4bd) -->
+        <!-- Listing 20: Venice Ave & Lincoln - $2,749/bed (4bd) - TOWNHOUSE -->
         <div class="listing-card">
-            <div class="photo-gallery multi-photo">
-                <img src="https://images.craigslist.org/00c0c_iWzWSt0EMr_0t20CI_600x450.jpg" alt="Venice Ave">
-                <img src="https://images.craigslist.org/00f0f_3Dc0JLLM4qq_0t20CI_600x450.jpg" alt="Venice Ave">
-                <img src="https://images.craigslist.org/00h0h_2S76H7TPepE_0CI0t2_600x450.jpg" alt="Venice Ave">
-                <img src="https://images.craigslist.org/00H0H_it9Z3WMnrty_0CI0t2_600x450.jpg" alt="Venice Ave">
-                <img src="https://images.craigslist.org/00101_euSCJlNoFgT_0t20CI_600x450.jpg" alt="Venice Ave">
+            <div class="photo-gallery-container">
+                <div class="photo-gallery" data-gallery="veniceave">
+                    <img src="https://images.craigslist.org/00c0c_iWzWSt0EMr_0t20CI_600x450.jpg" alt="Venice Ave">
+                    <img src="https://images.craigslist.org/00f0f_3Dc0JLLM4qq_0t20CI_600x450.jpg" alt="Venice Ave">
+                    <img src="https://images.craigslist.org/00h0h_2S76H7TPepE_0CI0t2_600x450.jpg" alt="Venice Ave">
+                    <img src="https://images.craigslist.org/00H0H_it9Z3WMnrty_0CI0t2_600x450.jpg" alt="Venice Ave">
+                    <img src="https://images.craigslist.org/00101_euSCJlNoFgT_0t20CI_600x450.jpg" alt="Venice Ave">
+                </div>
+                <button class="gallery-nav prev" onclick="scrollGallery('veniceave', -1)">
+                    <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                </button>
+                <button class="gallery-nav next" onclick="scrollGallery('veniceave', 1)">
+                    <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </button>
+                <div class="gallery-dots">
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
             </div>
             <div class="listing-content">
+                <div class="type-badge townhouse">🏘️ Townhouse</div>
                 <div class="price-section">
                     <div class="per-bed-price">$2,749/bed</div>
-                    <div class="budget-indicator over">✗</div>
+                    <div class="budget-indicator sweet-spot">✓</div>
                 </div>
                 <div class="price-details">$10,995/mo total · 4bd/4ba · 3,000 sqft</div>
                 <div class="address">Venice Ave & Lincoln Blvd, Venice</div>
@@ -679,15 +909,18 @@
             </div>
         </div>
         
-        <!-- Listing 21: 2436 Walnut Ave - $2,950/bed -->
+        <!-- Listing 21: 2436 Walnut Ave - $2,950/bed - APARTMENT -->
         <div class="listing-card">
-            <div class="photo-gallery">
-                <img src="https://photos.zillowstatic.com/fp/59f4d9eddd848a951aa55a141e008a9e-p_e.jpg" alt="Walnut Ave">
+            <div class="photo-gallery-container single-photo">
+                <div class="photo-gallery" data-gallery="walnut">
+                    <img src="https://photos.zillowstatic.com/fp/59f4d9eddd848a951aa55a141e008a9e-p_e.jpg" alt="Walnut Ave">
+                </div>
             </div>
             <div class="listing-content">
+                <div class="type-badge apartment">🏢 Apartment</div>
                 <div class="price-section">
                     <div class="per-bed-price">$2,950/bed</div>
-                    <div class="budget-indicator over">✗</div>
+                    <div class="budget-indicator sweet-spot">✓</div>
                 </div>
                 <div class="price-details">$8,850/mo total · 3bd/2ba · 1,555 sqft</div>
                 <div class="address">2436 Walnut Ave, Venice</div>
@@ -700,15 +933,50 @@
         <div class="top-picks">
             <h2>🌟 Top Picks</h2>
             <ul>
-                <li><strong>Best Value:</strong> Belle Fontaine ($1,186/bed) — Solid basics in Marina del Rey</li>
-                <li><strong>Character Pick:</strong> Beethoven St Spanish Charmer ($1,332/bed) — Unique w/ huge yard</li>
+                <li><strong>Best House Deal:</strong> Beethoven St Spanish Charmer ($1,332/bed) — Character + huge yard!</li>
+                <li><strong>Best Townhouse:</strong> Alla Rd Villa Vallarta ($2,415/bed) — Split-level with pool & spa</li>
+                <li><strong>Sweet Spot Townhouse:</strong> Venice Ave Contemporary ($2,749/bed) — Modern 3-story w/ rooftop deck</li>
                 <li><strong>Deal Alert:</strong> Mariners Village ($2,089/bed) — 2 MONTHS FREE! Waterfront living</li>
                 <li><strong>Prime Location:</strong> 2527 Abbot Kinney ($1,850/bed) — Right on the boulevard</li>
-                <li><strong>Designer Gem:</strong> Venice Blvd Designer House ($1,817/bed) — 12 skylights, spa tub, garage</li>
-                <li><strong>Large Family:</strong> 631 Indiana Ave ($1,538/bed for 4bd) — Great per-bed price</li>
+                <li><strong>Designer Gem:</strong> Venice Blvd House ($1,817/bed) — 12 skylights, spa tub, 2-car garage</li>
             </ul>
         </div>
         
     </div>
+    
+    <script>
+        function scrollGallery(galleryName, direction) {
+            const gallery = document.querySelector(`[data-gallery="${galleryName}"]`);
+            const scrollAmount = gallery.offsetWidth;
+            gallery.scrollBy({
+                left: scrollAmount * direction,
+                behavior: 'smooth'
+            });
+            
+            setTimeout(() => updateDots(galleryName), 100);
+        }
+        
+        function updateDots(galleryName) {
+            const gallery = document.querySelector(`[data-gallery="${galleryName}"]`);
+            const dots = gallery.parentElement.querySelectorAll('.dot');
+            const currentIndex = Math.round(gallery.scrollLeft / gallery.offsetWidth);
+            
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        // Update dots on scroll
+        document.querySelectorAll('.photo-gallery').forEach(gallery => {
+            gallery.addEventListener('scroll', () => {
+                const galleryName = gallery.getAttribute('data-gallery');
+                updateDots(galleryName);
+            });
+        });
+    </script>
 </body>
 </html>
