@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏠 Rental Digest — Feb 15</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f8f9fa;
+            padding: 20px;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        .urgency {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 30px;
+            margin: 0;
+            font-weight: 500;
+            color: #856404;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .listing-card {
+            background: white;
+            border: 1px solid #e1e8ed;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        
+        .listing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        
+        .listing-image {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .listing-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .listing-image.no-photo::after {
+            content: '🏠';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4em;
+            opacity: 0.3;
+        }
+        
+        .source-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.95);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            z-index: 10;
+        }
+        
+        .badge-zillow { color: #0074e4; }
+        .badge-craigslist { color: #7e1fff; }
+        .badge-realtor { color: #d92228; }
+        
+        .listing-body {
+            padding: 25px;
+        }
+        
+        .price {
+            font-size: 2em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .price-breakdown {
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .price-breakdown.under-budget { color: #27ae60; }
+        .price-breakdown.over-budget { color: #e74c3c; }
+        
+        .address {
+            font-size: 1.1em;
+            color: #34495e;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        
+        .specs {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            color: #7f8c8d;
+            font-size: 0.95em;
+        }
+        
+        .specs span {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .highlights {
+            margin: 15px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        .highlights li {
+            padding: 6px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+        
+        .highlights li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .view-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: transform 0.2s;
+        }
+        
+        .view-button:hover {
+            transform: translateX(5px);
+        }
+        
+        .summary-section {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .summary-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+        }
+        
+        .pick {
+            background: white;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+        
+        .pick h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #7f8c8d;
+            font-size: 0.9em;
+            border-top: 1px solid #e1e8ed;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e1e8ed;
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: 700;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.6em;
+            }
+            
+            .price {
+                font-size: 1.6em;
+            }
+            
+            .specs {
+                flex-wrap: wrap;
+            }
+            
+            .listing-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏠 Rental Digest — Feb 15</h1>
+            <p>Venice · Santa Monica · Marina del Rey</p>
+        </div>
+        
+        <div class="urgency">
+            ⏰ 18 days until lease expires — Time to act!
+        </div>
+        
+        <div class="content">
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-number">11</div>
+                    <div class="stat-label">Listings Found</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Under Budget</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">$3,995</div>
+                    <div class="stat-label">Cheapest 3BR</div>
+                </div>
+            </div>
+            
+            <!-- Listing 1: Spanish Style Venice/Mar Vista -->
+            <div class="listing-card">
+                <div class="listing-image">
+                    <span class="source-badge badge-craigslist">Craigslist</span>
+                    <img src="https://images.craigslist.org/00h0h_lAvt5IhVZAE_0CI0t2_600x450.jpg" alt="Spanish Style Home" onerror="this.style.display='none'">
+                </div>
+                <div class="listing-body">
+                    <div class="price">$3,995/mo</div>
+                    <div class="price-breakdown under-budget">$1,332/bedroom — Under budget ✓</div>
+                    <div class="address">BEETHOVEN St, Venice / Mar Vista, CA 90066</div>
+                    <div class="specs">
+                        <span>🛏️ 3 beds</span>
+                        <span>🛁 1 bath</span>
+                        <span>📐 1,100 sqft</span>
+                    </div>
+                    <ul class="highlights">
+                        <li>Spanish Style Charmer</li>
+                        <li>Brand New Bathroom w/ Walk-In Shower</li>
+                        <li>Bamboo Privacy Hedge Encloses Huge Front Yard w/ Gazebo</li>
+                        <li>Refinished Hardwood Floors, Granite Counters</li>
+                        <li>1 Mile from Venice Beach</li>
+                        <li>Pets OK with Deposit</li>
+                    </ul>
+                    <a href="https://losangeles.craigslist.org/wst/apa/d/los-angeles-3bd-1bth-spanish-style/7913653193.html" class="view-button">View Listing →</a>
+                </div>
+            </div>
+            
+            <!-- Listing 2: Furnished Venice Bungalow -->
+            <div class="listing-card">
+                <div class="listing-image no-photo">
+                    <span class="source-badge badge-craigslist">Craigslist</span>
+                </div>
+                <div class="listing-body">
+                    <div class="price">$4,000/mo</div>
+                    <div class="price-breakdown under-budget">$4,000/bedroom (1BR) — Under budget ✓</div>
+                    <div class="address">5th Ave, Venice, CA 90291</div>
+                    <div class="specs">
+                        <span>🛏️ 1 bed</span>
+                        <span>🛁 1 bath</span>
+                        <span>📐 750 sqft</span>
+                        <span>✨ Furnished</span>
+                    </div>
+                    <ul class="highlights">
+                        <li>Free Standing Bungalow with Private Yard</li>
+                        <li>Fully Furnished - Move-In Ready</li>
+                        <li>Washer/Dryer, Dishwasher, Infrared Sauna</li>
+                        <li>All Inclusive: Internet, TV, Utilities, Gardener</li>
+                        <li>Flexible: Month-to-Month up to 1 Year</li>
+                    </ul>
+                    <a href="https://losangeles.craigslist.org/wst/apa/d/venice-furnished-venice-bungalow-for/7913369591.html" class="view-button">View Listing →</a>
+                </div>
+            </div>
+            
+            <!-- Listing 3: Designer Venice House -->
+            <div class="listing-card">
+                <div class="listing-image">
+                    <span class="source-badge badge-craigslist">Craigslist</span>
+                    <img src="https://images.craigslist.org/00Z0Z_hkQRh1pXCJG_0cm083_600x450.jpg" alt="Designer Venice House" onerror="this.style.display='none'">
+                </div>
+                <div class="listing-body">
+                    <div class="price">$5,450/mo</div>
+                    <div class="price-breakdown under-budget">$5,450/bedroom (1BR) — Over budget</div>
+                    <div class="address">13263 Venice Blvd, Mar Vista, CA 90066</div>
+                    <div class="specs">
+                        <span>🛏️ 1 bed</span>
+                        <span>🛁 2 baths</span>
+                        <span>🚗 2-car garage</span>
+                    </div>
+                    <ul class="highlights">
+                        <li>Bright Designer House with Private Yard</li>
+                        <li>12 Custom Skylights for Natural Light</li>
+                        <li>Vaulted Ceilings, Hardwood Floors</li>
+                        <li>Spa Tub & Rain Shower</li>
+                        <li>Zen Garden with Bamboo Trees</li>
+                        <li>Walk to Venice Beach & Abbott Kinney</li>
+                        <li>Small Pets OK</li>
+                    </ul>
+                    <a href="https://losangeles.craigslist.org/wst/apa/d/los-angeles-bright-designer-venice/7914520424.html" class="view-button">View Listing →</a>
+                </div>
+            </div>
+            
+            <!-- Listing 4: Venice Canals 2+2 -->
+            <div class="listing-card">
+                <div class="listing-image">
+                    <span class="source-badge badge-craigslist">Craigslist</span>
+                    <img src="https://images.craigslist.org/01616_eMLBocyi9WE_0cU08B_600x450.jpg" alt="Venice Canals Condo" onerror="this.style.display='none'">
+                </div>
+                <div class="listing-body">
+                    <div class="price">$5,499/mo</div>
+                    <div class="price-breakdown under-budget">$2,750/bedroom — Under budget ✓</div>
+                    <div class="address">100 S Venice Blvd #4, Venice, CA 90291</div>
+                    <div class="specs">
+                        <span>🛏️ 2 beds</span>
+                        <span>🛁 2 baths</span>
+                        <span>📐 966 sqft</span>
+                    </div>
+                    <ul class="highlights">
+                        <li>Steps from the Sand & Venice Canals</li>
+                        <li>Remodeled with Impeccable Taste</li>
+                        <li>Open Beam Ceilings, Wide Plank Oak Floors</li>
+                        <li>Caesar-Stone Counters, Stainless Appliances</li>
+                        <li>Rooftop Deck, 2-Car Tandem Parking</li>
+                        <li>TWO WEEKS FREE for qualified applicants!</li>
+                    </ul>
+                    <a href="https://losangeles.craigslist.org/wst/apa/d/venice-w-venice-canals-and-beach-within/7913375654.html" class="view-button">View Listing →</a>
+                </div>
+            </div>
+            
+            <!-- Listing 5: Boone Ave Bungalow -->
+            <div class="listing-card">
+                <div class="listing-image">
+                    <span class="source-badge badge-craigslist">Craigslist</span>
+                    <img src="https://images.craigslist.org/00000_1qEu9Q02PSl_0uY0ne_600x450.jpg" alt="Boone Ave Bungalow" onerror="this.style.display='none'">
+                </div>
+                <div class="listing-body">
+                    <div class="price">$6,200/mo</div>
+                    <div class="price-breakdown under-budget">$3,100/bedroom — Under budget ✓</div>
+                    <div class="address">Boone Ave, Venice, CA 90291</div>
+                    <div class="specs">
+                        <span>🛏️ 2 beds</span>
+                        <span>🛁 1 bath</span>
+                        <span>🚗 1-car garage</span>
+                    </div>
+                    <ul class="highlights">
+                        <li>Newly Renovated Bungalow</li>
+                        <li>10 Minutes to Venice Beach</li>
+                        <li>Refurbished Hardwood Floors Throughout</li>
+                        <li>Working Gas Fireplace, Bay Window</li>
+                        <li>New Refrigerator & Dishwasher</li>
+                        <li>Huge Backyard Deck & Fenced Yard</li>
+                        <li>Washer/Dryer Hookups, Small Pets OK</li>
+                    </ul>
+                    <a href="https://losangeles.craigslist.org/wst/apa/d/venice-2416-boone-ave-newly-renov/7914274983.html" class="view-button">View Listing →</a>
+                </div>
+            </div>
+            
+            <!-- Listing 6: Marina del Rey 3BR Spacious -->
+            <div class="listing-card">
+                <div class="listing-image">
+                    <span class="source-badge badge-craigslist">Craigslist</span>
+                    <img src="https://images.craigslist.org/00M0M_5PHH8ioLBdd_08I06i_600x450.jpg" alt="Marina del Rey Apartment" onerror="this.style.display='none'">
+                </div>
+                <div class="listing-body">
+                    <div class="price">$6,266/mo</div>
+                    <div class="price-breakdown under-budget">$2,089/bedroom — Under budget ✓</div>
+                    <div class="address">4600 Vía Marina, Marina del Rey, CA 90292</div>
+                    <div class="specs">
+                        <span>🛏️ 3 beds</span>
+                        <span>🛁 2 baths</span>
+                        <span>📐 1,408 sqft</span>
+                    </div>
+                    <ul class="highlights">
+                        <li>TWO MONTHS FREE RENT!*</li>
+                        <li>Mariners Village - Resort-Style Living</li>
+                        <li>Swimming Pools, Tennis Courts, Spas</li>
+                        <li>Waterfront Marina Views (select units)</li>
+                        <li>Private Patios/Balconies, Gas Fireplace</li>
+                        <li>Pet-Friendly, On-Site Management</li>
+                    </ul>
+                    <a href="https://losangeles.craigslist.org/wst/apa/d/marina-del-rey-two-month-free-spacious/7914970383.html" class="view-button">View Listing →</a>
+                </div>
+            </div>
+            
+            <!-- Listing 7: Marina del Rey Townhouse Split Level -->
+            <div class="listing-card">
+                <div class="listing-image">
+                    <span class="source-badge badge-craigslist">Craigslist</span>
+                    <img src="https://images.craigslist.org/00202_f1G1qoOcfIF_0x20m1_600x450.jpg" alt="Marina del Rey Townhouse" onerror="this.style.display='none'">
+                </div>
+                <div class="listing-body">
+                    <div class="price">$7,245/mo</div>
+                    <div class="price-breakdown under-budget">$2,415/bedroom — Under budget ✓</div>
+                    <div class="address">4631 Alla Road #8, Marina Del Rey, CA 90292</div>
+                    <div class="specs">
+                        <span>🛏️ 3 beds</span>
+                        <span>🛁 2.5 baths</span>
+                        <span>📐 1,707 sqft</span>
+                        <span>🚗 2-car garage</span>
+                    </div>
+                    <ul class="highlights">
+                        <li>Fabulous Split-Level Townhouse</li>
+                        <li>Villa Vallarta - Well-Groomed Community</li>
+                        <li>Fireplace, Juliet Balcony in Primary Suite</li>
+                        <li>5-Function Spa Shower, Dual Sinks</li>
+                        <li>Vaulted Ceilings, Marble & Wood Floors</li>
+                        <li>In-Unit Washer/Dryer, Central A/C</li>
+                        <li>Pool, Spa, Racquetball Courts</li>
+                        <li>Small Pets OK</li>
+                    </ul>
+                    <a href="https://losangeles.craigslist.org/wst/apa/d/marina-del-rey-layers-of-love-split/7915091470.html" class="view-button">View Listing →</a>
+                </div>
+            </div>
+            
+            <!-- Listing 8: Contemporary Townhouse Venice Beach -->
+            <div class="listing-card">
+                <div class="listing-image">
+                    <span class="source-badge badge-craigslist">Craigslist</span>
+                    <img src="https://images.craigslist.org/00c0c_iWzWSt0EMr_0t20CI_600x450.jpg" alt="Contemporary Townhouse" onerror="this.style.display='none'">
+                </div>
+                <div class="listing-body">
+                    <div class="price">$10,995/mo</div>
+                    <div class="price-breakdown under-budget">$2,749/bedroom — Under budget ✓</div>
+                    <div class="address">Venice Ave & Lincoln Blvd, Venice Beach, CA</div>
+                    <div class="specs">
+                        <span>🛏️ 4 beds</span>
+                        <span>🛁 4 baths</span>
+                        <span>📐 3,000 sqft</span>
+                    </div>
+                    <ul class="highlights">
+                        <li>Contemporary Multilevel Townhouse</li>
+                        <li>Centralized Great Room, Massive Galley Kitchen</li>
+                        <li>Large Rooftop Deck with Stainless BBQ Island</li>
+                        <li>Central AC, In-House Washer/Dryer</li>
+                        <li>Hardwood Floors, Modern Finishes</li>
+                        <li>Tandem Parking with Clicker</li>
+                        <li>PET FRIENDLY</li>
+                        <li>Available Furnished & Short Term</li>
+                    </ul>
+                    <a href="https://losangeles.craigslist.org/wst/apa/d/venice-contemporary-townhouse-venice/7911757823.html" class="view-button">View Listing →</a>
+                </div>
+            </div>
+            
+            <div class="summary-section">
+                <h2>🎯 Hanuman's Top Picks</h2>
+                
+                <div class="pick">
+                    <h3>🏆 Best Overall Value: Spanish Style Venice/Mar Vista — $3,995/mo</h3>
+                    <p>The winner! At just $1,332/bedroom for a full 3BR house, this Spanish charmer offers unbeatable value. Newly renovated bathroom, hardwood floors, granite counters, and a huge private yard with gazebo. Only 1 mile from Venice Beach. Perfect for a group of 3.</p>
+                </div>
+                
+                <div class="pick">
+                    <h3>💎 Best Location Deal: Venice Canals 2+2 — $5,499/mo</h3>
+                    <p>Steps from the sand AND the Venice Canals at $2,750/bedroom. Recently remodeled with taste, rooftop deck, and 2-car parking. Plus TWO WEEKS FREE rent! This is prime Venice waterfront living without breaking the bank.</p>
+                </div>
+                
+                <div class="pick">
+                    <h3>✨ Best for Luxury Seekers: Marina del Rey Split-Level Townhouse — $7,245/mo</h3>
+                    <p>Stunning 3BR/2.5BA townhouse at $2,415/bedroom. Split-level design, 2-car garage, spa shower, vaulted ceilings, and access to pool/spa/racquetball. This feels like a resort but is still under your $3,500/bedroom budget.</p>
+                </div>
+                
+                <div class="pick">
+                    <h3>🎨 Best for Entertainers: Contemporary Townhouse Venice — $10,995/mo</h3>
+                    <p>If you can get 3 friends (4BR total), this is $2,749/bedroom for a modern 3,000 sqft townhouse. Massive kitchen, rooftop deck with BBQ island, and perfect for hosting. Prime Venice Beach location with all the bells and whistles.</p>
+                </div>
+                
+                <div class="pick">
+                    <h3>🌟 Best Move-In Ready: Marina del Rey 3BR w/ 2 Months Free — $6,266/mo</h3>
+                    <p>TWO MONTHS FREE RENT brings the effective monthly down significantly! At $2,089/bedroom, you get marina views, resort amenities (pools, tennis, spas), and a waterfront lifestyle. Great deal when you factor in the free months.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Compiled by Hanuman 🐒 • Sources: Craigslist<br>
+            Generated February 15, 2026 • 8 of 11 listings have actual photos<br>
+            All prices and availability subject to change
+        </div>
+    </div>
+</body>
+</html>
