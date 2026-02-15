@@ -1,353 +1,714 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>🏠 Rental Digest — Feb 15</title>
-<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f5f6fa;padding:12px;color:#2c3e50}.c{max-width:640px;margin:0 auto}</style></head><body><div class="c">
-<div style="background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:28px 20px;border-radius:12px;text-align:center;margin-bottom:16px">
-<h1 style="font-size:1.6em;margin-bottom:6px">🏠 Rental Digest — Feb 15</h1>
-<p style="opacity:0.9;font-size:0.9em">Venice · Santa Monica · Marina del Rey</p></div>
-<div style="background:#fef3c7;color:#92400e;padding:10px 16px;border-radius:8px;margin-bottom:16px;font-weight:600;text-align:center;font-size:0.9em">⏰ 18 days until lease expires</div>
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;text-align:center">
-<div style="background:white;padding:14px 8px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.05)"><div style="font-size:1.4em;font-weight:800">22</div><div style="color:#a0aec0;font-size:0.75em">Total</div></div>
-<div style="background:white;padding:14px 8px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.05)"><div style="font-size:1.4em;font-weight:800;color:#27ae60">22</div><div style="color:#a0aec0;font-size:0.75em">Under Budget</div></div>
-<div style="background:white;padding:14px 8px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.05)"><div style="font-size:1.4em;font-weight:800">3</div><div style="color:#a0aec0;font-size:0.75em">Sources</div></div></div>
-<div style="display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap">
-<span style="background:#A02021;color:white;padding:3px 10px;border-radius:10px;font-size:0.75em;font-weight:700">REDFIN: 9</span>
-<span style="background:#006AFF;color:white;padding:3px 10px;border-radius:10px;font-size:0.75em;font-weight:700">ZILLOW: 7</span>
-<span style="background:#8B45A6;color:white;padding:3px 10px;border-radius:10px;font-size:0.75em;font-weight:700">CRAIGSLIST: 6</span></div>
-<div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://ssl.cdn-redfin.com/photo/rent/559584b8-af7c-4117-a7c3-8876d1fb2b33/islphoto/genIsl.0_4.webp" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#A02021;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">REDFIN</div>
-  </div>
-  <div style="padding:16px 20px">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Digest — Feb 15</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f5f6fa;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stats-bar {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .stat {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .stat strong {
+            display: block;
+            font-size: 1.3rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .source-pills {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .pill {
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .pill.redfin {
+            background: #a02021;
+            color: white;
+        }
+        
+        .pill.zillow {
+            background: #0074e4;
+            color: white;
+        }
+        
+        .pill.craigslist {
+            background: #6f42c1;
+            color: white;
+        }
+        
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+        }
+        
+        .listing-card {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        
+        .listing-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+        
+        .photo-gallery {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            height: 180px;
+        }
+        
+        .photo-gallery::-webkit-scrollbar {
+            height: 4px;
+        }
+        
+        .photo-gallery::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        .photo-gallery::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        
+        .photo-gallery img {
+            height: 180px;
+            min-width: 100%;
+            object-fit: cover;
+            scroll-snap-align: start;
+        }
+        
+        .photo-gallery.multi-photo img {
+            min-width: 85%;
+        }
+        
+        .listing-content {
+            padding: 1.25rem;
+        }
+        
+        .price-section {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .per-bed-price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #2c3e50;
+        }
+        
+        .budget-indicator {
+            font-size: 1.2rem;
+        }
+        
+        .budget-indicator.under {
+            color: #27ae60;
+        }
+        
+        .budget-indicator.over {
+            color: #e74c3c;
+        }
+        
+        .price-details {
+            font-size: 0.95rem;
+            color: #7f8c8d;
+            margin-bottom: 0.5rem;
+        }
+        
+        .address {
+            font-size: 1rem;
+            color: #34495e;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .source-badge {
+            display: inline-block;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .source-badge.redfin {
+            background: #a02021;
+            color: white;
+        }
+        
+        .source-badge.zillow {
+            background: #0074e4;
+            color: white;
+        }
+        
+        .source-badge.craigslist {
+            background: #6f42c1;
+            color: white;
+        }
+        
+        .special-note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 0.6rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            border-radius: 4px;
+        }
+        
+        .view-btn {
+            display: inline-block;
+            padding: 0.65rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        
+        .view-btn.redfin {
+            background: #a02021;
+            color: white;
+        }
+        
+        .view-btn.zillow {
+            background: #0074e4;
+            color: white;
+        }
+        
+        .view-btn.craigslist {
+            background: #6f42c1;
+            color: white;
+        }
+        
+        .view-btn:hover {
+            opacity: 0.9;
+            transform: translateX(2px);
+        }
+        
+        .top-picks {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .top-picks h2 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .top-picks ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .top-picks li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .top-picks li:last-child {
+            border-bottom: none;
+        }
+        
+        .top-picks strong {
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Rental Digest — Feb 15</h1>
+        <div class="subtitle">Venice · Santa Monica · Marina del Rey</div>
+        
+        <div class="stats-bar">
+            <div class="stat">
+                <strong>22</strong>
+                Total Listings
+            </div>
+            <div class="stat">
+                <strong>9</strong>
+                Under $1,850/bed
+            </div>
+            <div class="stat">
+                <strong>$1,186</strong>
+                Cheapest per bed
+            </div>
+        </div>
+        
+        <div class="source-pills">
+            <div class="pill redfin">Redfin: 9</div>
+            <div class="pill zillow">Zillow: 7</div>
+            <div class="pill craigslist">Craigslist: 6</div>
+        </div>
+    </div>
     
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$3,557<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $1,186/bed</span>
+    <div class="container">
+        
+        <!-- Listing 1: Belle Fontaine - $1,186/bed -->
+        <div class="listing-card">
+            <div class="photo-gallery">
+                <img src="https://ssl.cdn-redfin.com/photo/rent/559584b8-af7c-4117-a7c3-8876d1fb2b33/islphoto/genIsl.0_4.webp" alt="Belle Fontaine">
+            </div>
+            <div class="listing-content">
+                <div class="price-section">
+                    <div class="per-bed-price">$1,186/bed</div>
+                    <div class="budget-indicator under">✓</div>
+                </div>
+                <div class="price-details">$3,557/mo total · 3bd/2ba · 1,447 sqft</div>
+                <div class="address">Belle Fontaine, Marina del Rey</div>
+                <div class="source-badge redfin">Redfin</div>
+                <a href="https://www.redfin.com/CA/Marina-Del-Rey/Belle-Fontaine/apartment/177431580" class="view-btn redfin">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Listing 2: Beethoven St - $1,332/bed -->
+        <div class="listing-card">
+            <div class="photo-gallery multi-photo">
+                <img src="https://images.craigslist.org/00h0h_lAvt5IhVZAE_0CI0t2_600x450.jpg" alt="Beethoven St">
+                <img src="https://images.craigslist.org/00w0w_gzgwb038Ltg_0CI0t2_600x450.jpg" alt="Beethoven St">
+                <img src="https://images.craigslist.org/00R0R_cj5PqdeyAjS_0CI0t2_600x450.jpg" alt="Beethoven St">
+                <img src="https://images.craigslist.org/00808_aToef7ls4E4_0CI0t2_600x450.jpg" alt="Beethoven St">
+                <img src="https://images.craigslist.org/00909_2d3kzXlSRQ6_0CI0t2_600x450.jpg" alt="Beethoven St">
+            </div>
+            <div class="listing-content">
+                <div class="price-section">
+                    <div class="per-bed-price">$1,332/bed</div>
+                    <div class="budget-indicator under">✓</div>
+                </div>
+                <div class="price-details">$3,995/mo total · 3bd/1ba · 1,100 sqft</div>
+                <div class="address">Beethoven St, Venice/Mar Vista</div>
+                <div class="source-badge craigslist">Craigslist</div>
+                <div class="special-note">🏡 Spanish charmer with huge yard, bamboo privacy hedge, brand new bathroom</div>
+                <a href="https://losangeles.craigslist.org/wst/apa/d/los-angeles-3bd-1bth-spanish-style/7913653193.html" class="view-btn craigslist">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Listing 3: 631 Indiana Ave - $1,538/bed (4bd) -->
+        <div class="listing-card">
+            <div class="photo-gallery">
+                <img src="https://photos.zillowstatic.com/fp/3c8b553feaa067f5ebce226dd80e3e69-p_e.jpg" alt="631 Indiana Ave">
+            </div>
+            <div class="listing-content">
+                <div class="price-section">
+                    <div class="per-bed-price">$1,538/bed</div>
+                    <div class="budget-indicator under">✓</div>
+                </div>
+                <div class="price-details">$6,150/mo total · 4bd/2ba</div>
+                <div class="address">631 Indiana Ave, Venice</div>
+                <div class="source-badge zillow">Zillow</div>
+                <a href="https://www.zillow.com/apartments/venice-ca/631-indiana-avenue-631-frnt/5XtZPW/" class="view-btn zillow">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Listing 4: Mirabella - $1,629/bed -->
+        <div class="listing-card">
+            <div class="photo-gallery">
+                <img src="https://ssl.cdn-redfin.com/photo/rent/0a7491b0-1074-4645-995a-dc4b0a36194f/islphoto/genIsl.0_63.webp" alt="Mirabella">
+            </div>
+            <div class="listing-content">
+                <div class="price-section">
+                    <div class="per-bed-price">$1,629/bed</div>
+                    <div class="budget-indicator under">✓</div>
+                </div>
+                <div class="price-details">$4,887/mo total · 3bd/2ba · 1,685 sqft</div>
+                <div class="address">Mirabella, 13701 Marina Pointe Dr, MDR</div>
+                <div class="source-badge redfin">Redfin</div>
+                <a href="https://www.redfin.com/CA/Marina-del-Rey/Mirabella/apartment/8136417" class="view-btn redfin">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Listing 5: C1 by CLG - $1,644/bed -->
+        <div class="listing-card">
+            <div class="photo-gallery">
+                <img src="https://ssl.cdn-redfin.com/photo/rent/e3f5184c-277f-4f81-a909-bc76dcda6263/islphoto/genIsl.0_3.webp" alt="C1 by CLG">
+            </div>
+            <div class="listing-content">
+                <div class="price-section">
+                    <div class="per-bed-price">$1,644/bed</div>
+                    <div class="budget-indicator under">✓</div>
+                </div>
+                <div class="price-details">$4,932/mo total · 3bd/2ba · 1,130 sqft</div>
+                <div class="address">C1 by CLG, Marina del Rey</div>
+                <div class="source-badge redfin">Redfin</div>
+                <a href="https://www.redfin.com/CA/Marina-del-Rey/C1-by-CLG/apartment/167414324" class="view-btn redfin">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Listing 6: 354-356 4th Ave - $1,665/bed -->
+        <div class="listing-card">
+            <div class="photo-gallery">
+                <img src="https://photos.zillowstatic.com/fp/72f55c1e920e8a17f76e6ae21d59012c-p_e.jpg" alt="354-356 4th Ave">
+            </div>
+            <div class="listing-content">
+                <div class="price-section">
+                    <div class="per-bed-price">$1,665/bed</div>
+                    <div class="budget-indicator under">✓</div>
+                </div>
+                <div class="price-details">$4,995/mo total · 3bd/2ba · 1,100 sqft</div>
+                <div class="address">354-356 4th Ave #1, Venice</div>
+                <div class="source-badge zillow">Zillow</div>
+                <a href="https://www.zillow.com/apartments/venice-ca/4th-ave/Cp7CNM/" class="view-btn zillow">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Listing 7: Jefferson at Marina del Rey - $1,700/bed -->
+        <div class="listing-card">
+            <div class="photo-gallery">
+                <img src="https://ssl.cdn-redfin.com/photo/rent/b04e03c4-d0f7-4db4-85f5-aaa497cfe691/islphoto/genIsl.0_4.webp" alt="Jefferson">
+            </div>
+            <div class="listing-content">
+                <div class="price-section">
+                    <div class="per-bed-price">$1,700/bed</div>
+                    <div class="budget-indicator under">✓</div>
+                </div>
+                <div class="price-details">$5,099/mo total · 3bd/2ba · 1,628 sqft</div>
+                <div class="address">Jefferson at Marina del Rey, 3221 Carter Ave</div>
+                <div class="source-badge redfin">Redfin</div>
+                <a href="https://www.redfin.com/CA/Marina-del-Rey/Jefferson-at-Marina-del-Rey/apartment/21881641" class="view-btn redfin">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Listing 8: Tribeca Urban Apartments - $1,775/bed -->
+        <div class="listing-card">
+            <div class="photo-gallery">
+                <img src="https://ssl.cdn-redfin.com/photo/rent/fa5f92a8-3b76-4857-b027-016bac1c67f8/islphoto/genIsl.0_1.webp" alt="Tribeca">
+            </div>
+            <div class="listing-content">
+                <div class="price-section">
+                    <div class="per-bed-price">$1,775/bed</div>
+                    <div class="budget-indicator under">✓</div>
+                </div>
+                <div class="price-details">$5,325/mo total · 3bd/3ba · 1,365 sqft</div>
+                <div class="address">Tribeca Urban Apartments, Marina del Rey</div>
+                <div class="source-badge redfin">Redfin</div>
+                <a href="https://www.redfin.com/CA/Marina-Del-Rey/Tribeca-Urban-Apartments/apartment/177386554" class="view-btn redfin">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Listing 9: 634 Flower Ave - $1,798/bed -->
+        <div class="listing-card">
+            <div class="photo-gallery">
+                <img src="https://photos.zillowstatic.com/fp/6bfa866e2704d9354957cc3381c44996-p_e.jpg" alt="634 Flower Ave">
+            </div>
+            <div class="listing-content">
+                <div class="price-section">
+                    <div class="per-bed-price">$1,798/bed</div>
+                    <div class="budget-indicator over">✗</div>
+                </div>
+                <div class="price-details">$5,395/mo total · 3bd/2ba</div>
+                <div class="address">634 Flower Ave #2, Venice</div>
+                <div class="source-badge zillow">Zillow</div>
+                <a href="https://www.zillow.com/homedetails/634-Flower-Ave-2-Venice-CA-90291/2063061989_zpid/" class="view-btn zillow">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Listing 10: Lincoln Place - $1,816/bed -->
+        <div class="listing-card">
+            <div class="photo-gallery">
+                <img src="https://photos.zillowstatic.com/fp/40da5f16c749465850e632c5a6716f78-p_e.jpg" alt="Lincoln Place">
+            </div>
+            <div class="listing-content">
+                <div class="price-section">
+                    <div class="per-bed-price">$1,816/bed</div>
+                    <div class="budget-indicator over">✗</div>
+                </div>
+                <div class="price-details">$5,449/mo total · 3bd/2ba</div>
+                <div class="address">Lincoln Place, 1050 Frederick St, Venice</div>
+                <div class="source-badge zillow">Zillow</div>
+                <a href="https://www.zillow.com/apartments/venice-ca/lincoln-place/5h9prm/" class="view-btn zillow">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Listing 11: Venice Blvd area - $1,817/bed -->
+        <div class="listing-card">
+            <div class="photo-gallery multi-photo">
+                <img src="https://images.craigslist.org/00Z0Z_hkQRh1pXCJG_0cm083_600x450.jpg" alt="Venice Blvd">
+                <img src="https://images.craigslist.org/00V0V_iKk4TouQYK4_0cU08B_600x450.jpg" alt="Venice Blvd">
+                <img src="https://images.craigslist.org/00Y0Y_kEXSEbGy7e_0cU08B_600x450.jpg" alt="Venice Blvd">
+                <img src="https://images.craigslist.org/00p0p_f3BQmR0Nrp1_0cU08B_600x450.jpg" alt="Venice Blvd">
+                <img src="https://images.craigslist.org/01717_lr2UCAbyvHN_0cU08B_600x450.jpg" alt="Venice Blvd">
+            </div>
+            <div class="listing-content">
+                <div class="price-section">
+                    <div class="per-bed-price">$1,817/bed</div>
+                    <div class="budget-indicator over">✗</div>
+                </div>
+                <div class="price-details">$5,450/mo total · 3bd/1ba</div>
+                <div class="address">13263 Venice Blvd, Mar Vista</div>
+                <div class="source-badge craigslist">Craigslist</div>
+                <div class="special-note">✨ Designer finishes, private yard, 12 skylights, spa tub, 2-car garage</div>
+                <a href="https://losangeles.craigslist.org/wst/apa/d/los-angeles-bright-designer-venice/7914520424.html" class="view-btn craigslist">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Listing 12: Stella - $1,835/bed -->
+        <div class="listing-card">
+            <div class="photo-gallery">
+                <img src="https://ssl.cdn-redfin.com/photo/rent/fa5f92a8-3b76-4857-b027-016bac1c67f8/islphoto/genIsl.0_1.webp" alt="Stella">
+            </div>
+            <div class="listing-content">
+                <div class="price-section">
+                    <div class="per-bed-price">$1,835/bed</div>
+                    <div class="budget-indicator over">✗</div>
+                </div>
+                <div class="price-details">$5,504/mo total · 3bd/2ba · 1,406 sqft</div>
+                <div class="address">Stella, Marina del Rey</div>
+                <div class="source-badge redfin">Redfin</div>
+                <a href="https://www.redfin.com/CA/Marina-del-Rey/Stella-CA/apartment/143514372" class="view-btn redfin">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Listing 13: 2527 Abbot Kinney - $1,850/bed -->
+        <div class="listing-card">
+            <div class="photo-gallery">
+                <img src="https://ssl.cdn-redfin.com/photo/rent/63a52186-d9bd-4f04-a584-655f82486597/islphoto/genIsl.0_1.webp" alt="2527 Abbot Kinney">
+            </div>
+            <div class="listing-content">
+                <div class="price-section">
+                    <div class="per-bed-price">$1,850/bed</div>
+                    <div class="budget-indicator over">✗</div>
+                </div>
+                <div class="price-details">$5,550/mo total · 3bd/2ba · 1,400 sqft</div>
+                <div class="address">2527 Abbot Kinney Blvd, Venice</div>
+                <div class="source-badge redfin">Redfin</div>
+                <div class="special-note">🌟 Prime Abbot Kinney location!</div>
+                <a href="https://www.redfin.com/CA/Venice/2527-Abbot-Kinney-Blvd-90291/unit-2527/apartment/193662113" class="view-btn redfin">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Listing 14: 531 Indiana Ave - $1,998/bed (4bd) -->
+        <div class="listing-card">
+            <div class="photo-gallery">
+                <img src="https://photos.zillowstatic.com/fp/d57267d746a924cd7d9f94bcf13dc69e-p_e.jpg" alt="531 Indiana Ave">
+            </div>
+            <div class="listing-content">
+                <div class="price-section">
+                    <div class="per-bed-price">$1,998/bed</div>
+                    <div class="budget-indicator over">✗</div>
+                </div>
+                <div class="price-details">$7,990/mo total · 4bd/4ba · 2,100 sqft</div>
+                <div class="address">531 Indiana Ave #A, Venice</div>
+                <div class="source-badge zillow">Zillow</div>
+                <a href="https://www.zillow.com/homedetails/531-Indiana-Ave-A-Venice-CA-90291/452037674_zpid/" class="view-btn zillow">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Listing 15: 2416 Boone Ave - $2,067/bed -->
+        <div class="listing-card">
+            <div class="photo-gallery multi-photo">
+                <img src="https://images.craigslist.org/00000_1qEu9Q02PSl_0uY0ne_600x450.jpg" alt="Boone Ave">
+                <img src="https://images.craigslist.org/00F0F_c0730IHT8I0_0uY0ne_600x450.jpg" alt="Boone Ave">
+                <img src="https://images.craigslist.org/00L0L_dzWdi7zMaXX_0ak07K_600x450.jpg" alt="Boone Ave">
+                <img src="https://images.craigslist.org/00J0J_bDcxsC4lBu3_0CI0t2_600x450.jpg" alt="Boone Ave">
+                <img src="https://images.craigslist.org/00303_4uMoxiLu3HN_0uY0ne_600x450.jpg" alt="Boone Ave">
+            </div>
+            <div class="listing-content">
+                <div class="price-section">
+                    <div class="per-bed-price">$2,067/bed</div>
+                    <div class="budget-indicator over">✗</div>
+                </div>
+                <div class="price-details">$6,200/mo total · 3bd/1.5ba</div>
+                <div class="address">2416 Boone Ave, Venice</div>
+                <div class="source-badge craigslist">Craigslist</div>
+                <div class="special-note">🔨 Newly renovated bungalow, hardwood floors, fireplace, huge backyard deck</div>
+                <a href="https://losangeles.craigslist.org/wst/apa/d/venice-2416-boone-ave-newly-renov/7914274983.html" class="view-btn craigslist">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Listing 16: Mariners Village - $2,089/bed -->
+        <div class="listing-card">
+            <div class="photo-gallery multi-photo">
+                <img src="https://ssl.cdn-redfin.com/photo/rent/22ea8095-32ae-452c-8703-31f3b13da542/islphoto/genIsl.0_8.webp" alt="Mariners Village">
+                <img src="https://images.craigslist.org/00M0M_5PHH8ioLBdd_08I06i_600x450.jpg" alt="Mariners Village">
+                <img src="https://images.craigslist.org/00r0r_g0O81pnXOA3_08I06i_600x450.jpg" alt="Mariners Village">
+                <img src="https://images.craigslist.org/00G0G_4q3NzP6h2yN_08I06i_600x450.jpg" alt="Mariners Village">
+                <img src="https://images.craigslist.org/00606_hAp3UpHqqCf_08I06i_600x450.jpg" alt="Mariners Village">
+            </div>
+            <div class="listing-content">
+                <div class="price-section">
+                    <div class="per-bed-price">$2,089/bed</div>
+                    <div class="budget-indicator over">✗</div>
+                </div>
+                <div class="price-details">$6,266/mo total · 3bd/2ba · 1,408 sqft</div>
+                <div class="address">Mariners Village, 4600 Via Marina, MDR</div>
+                <div class="source-badge redfin">Redfin</div>
+                <div class="special-note">🎁 2 MONTHS FREE! Resort-style waterfront living</div>
+                <a href="https://www.redfin.com/CA/Marina-Del-Rey/Mariners-Village/apartment/177698515" class="view-btn redfin">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Listing 17: Breakwater - $2,097/bed -->
+        <div class="listing-card">
+            <div class="photo-gallery">
+                <img src="https://ssl.cdn-redfin.com/photo/rent/1c1902d3-5bf3-4cd9-ab35-40c349c600ca/islphoto/genIsl.0_4.webp" alt="Breakwater">
+            </div>
+            <div class="listing-content">
+                <div class="price-section">
+                    <div class="per-bed-price">$2,097/bed</div>
+                    <div class="budget-indicator over">✗</div>
+                </div>
+                <div class="price-details">$6,291/mo total · 3bd/2ba · 1,875 sqft</div>
+                <div class="address">Breakwater at Marina del Rey</div>
+                <div class="source-badge redfin">Redfin</div>
+                <a href="https://www.redfin.com/CA/Marina-Del-Rey/Breakwater-at-Marina-del-Rey/apartment/177406986" class="view-btn redfin">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Listing 18: 528-530 Westminster - $2,167/bed -->
+        <div class="listing-card">
+            <div class="photo-gallery">
+                <img src="https://photos.zillowstatic.com/fp/fbb368eb726d0417fe9c1904eab61a9c-p_e.jpg" alt="Westminster Ave">
+            </div>
+            <div class="listing-content">
+                <div class="price-section">
+                    <div class="per-bed-price">$2,167/bed</div>
+                    <div class="budget-indicator over">✗</div>
+                </div>
+                <div class="price-details">$6,500/mo total · 3bd/2ba · 1,350 sqft</div>
+                <div class="address">528-530 Westminster Ave, Venice</div>
+                <div class="source-badge zillow">Zillow</div>
+                <a href="https://www.zillow.com/apartments/venice-ca/ve0528-(rso)/CmtqzF/" class="view-btn zillow">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Listing 19: 4631 Alla Rd - $2,415/bed -->
+        <div class="listing-card">
+            <div class="photo-gallery multi-photo">
+                <img src="https://images.craigslist.org/00202_f1G1qoOcfIF_0x20m1_600x450.jpg" alt="Alla Rd">
+                <img src="https://images.craigslist.org/00Q0Q_gdFV28IyNcp_0x20m1_600x450.jpg" alt="Alla Rd">
+                <img src="https://images.craigslist.org/00s0s_cMbXBa3ksA4_0x20m1_600x450.jpg" alt="Alla Rd">
+                <img src="https://images.craigslist.org/00D0D_92BggzLFNfk_0x20m1_600x450.jpg" alt="Alla Rd">
+                <img src="https://images.craigslist.org/00606_2DXw1vadAPn_0x20m1_600x450.jpg" alt="Alla Rd">
+            </div>
+            <div class="listing-content">
+                <div class="price-section">
+                    <div class="per-bed-price">$2,415/bed</div>
+                    <div class="budget-indicator over">✗</div>
+                </div>
+                <div class="price-details">$7,245/mo total · 3bd/2.5ba</div>
+                <div class="address">4631 Alla Rd #8, MDR (Villa Vallarta)</div>
+                <div class="source-badge craigslist">Craigslist</div>
+                <div class="special-note">🏘️ Split-level townhouse, 2-car garage, fireplace, pool & spa</div>
+                <a href="https://losangeles.craigslist.org/wst/apa/d/marina-del-rey-layers-of-love-split/7915091470.html" class="view-btn craigslist">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Listing 20: Venice Ave & Lincoln - $2,749/bed (4bd) -->
+        <div class="listing-card">
+            <div class="photo-gallery multi-photo">
+                <img src="https://images.craigslist.org/00c0c_iWzWSt0EMr_0t20CI_600x450.jpg" alt="Venice Ave">
+                <img src="https://images.craigslist.org/00f0f_3Dc0JLLM4qq_0t20CI_600x450.jpg" alt="Venice Ave">
+                <img src="https://images.craigslist.org/00h0h_2S76H7TPepE_0CI0t2_600x450.jpg" alt="Venice Ave">
+                <img src="https://images.craigslist.org/00H0H_it9Z3WMnrty_0CI0t2_600x450.jpg" alt="Venice Ave">
+                <img src="https://images.craigslist.org/00101_euSCJlNoFgT_0t20CI_600x450.jpg" alt="Venice Ave">
+            </div>
+            <div class="listing-content">
+                <div class="price-section">
+                    <div class="per-bed-price">$2,749/bed</div>
+                    <div class="budget-indicator over">✗</div>
+                </div>
+                <div class="price-details">$10,995/mo total · 4bd/4ba · 3,000 sqft</div>
+                <div class="address">Venice Ave & Lincoln Blvd, Venice</div>
+                <div class="source-badge craigslist">Craigslist</div>
+                <div class="special-note">🌇 3-story contemporary townhouse with rooftop deck, tandem parking</div>
+                <a href="https://losangeles.craigslist.org/wst/apa/d/venice-contemporary-townhouse-venice/7911757823.html" class="view-btn craigslist">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Listing 21: 2436 Walnut Ave - $2,950/bed -->
+        <div class="listing-card">
+            <div class="photo-gallery">
+                <img src="https://photos.zillowstatic.com/fp/59f4d9eddd848a951aa55a141e008a9e-p_e.jpg" alt="Walnut Ave">
+            </div>
+            <div class="listing-content">
+                <div class="price-section">
+                    <div class="per-bed-price">$2,950/bed</div>
+                    <div class="budget-indicator over">✗</div>
+                </div>
+                <div class="price-details">$8,850/mo total · 3bd/2ba · 1,555 sqft</div>
+                <div class="address">2436 Walnut Ave, Venice</div>
+                <div class="source-badge zillow">Zillow</div>
+                <a href="https://www.zillow.com/homedetails/2436-Walnut-Ave-Venice-CA-90291/20448922_zpid/" class="view-btn zillow">View Listing →</a>
+            </div>
+        </div>
+        
+        <!-- Top Picks Section -->
+        <div class="top-picks">
+            <h2>🌟 Top Picks</h2>
+            <ul>
+                <li><strong>Best Value:</strong> Belle Fontaine ($1,186/bed) — Solid basics in Marina del Rey</li>
+                <li><strong>Character Pick:</strong> Beethoven St Spanish Charmer ($1,332/bed) — Unique w/ huge yard</li>
+                <li><strong>Deal Alert:</strong> Mariners Village ($2,089/bed) — 2 MONTHS FREE! Waterfront living</li>
+                <li><strong>Prime Location:</strong> 2527 Abbot Kinney ($1,850/bed) — Right on the boulevard</li>
+                <li><strong>Designer Gem:</strong> Venice Blvd Designer House ($1,817/bed) — 12 skylights, spa tub, garage</li>
+                <li><strong>Large Family:</strong> 631 Indiana Ave ($1,538/bed for 4bd) — Great per-bed price</li>
+            </ul>
+        </div>
+        
     </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 Belle Fontaine, Marina del Rey</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">3 bed · 2 bath · 1,447 sqft</div>
-    <a href="https://www.redfin.com/CA/Marina-Del-Rey/Belle-Fontaine/apartment/177431580" target="_blank" rel="noopener" style="display:inline-block;background:#A02021;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://images.craigslist.org/00N0N_3pUGLiXMRCz_0CI0t2_600x450.jpg" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#8B45A6;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">CRAIGSLIST</div>
-  </div>
-  <div style="padding:16px 20px">
-    <div style="background:#fffbeb;color:#92400e;padding:6px 12px;border-radius:6px;font-size:13px;margin-bottom:10px;font-weight:500">Spanish charmer, huge yard</div>
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$3,995<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $1,332/bed</span>
-    </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 Beethoven St, Venice/Mar Vista</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">3 bed · 1 bath · 1,100 sqft</div>
-    <a href="https://losangeles.craigslist.org/wst/apa/d/los-angeles-3bd-1bth-spanish-style/7913653193.html" target="_blank" rel="noopener" style="display:inline-block;background:#8B45A6;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://ssl.cdn-redfin.com/photo/rent/0a7491b0-1074-4645-995a-dc4b0a36194f/islphoto/genIsl.0_63.webp" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#A02021;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">REDFIN</div>
-  </div>
-  <div style="padding:16px 20px">
-    
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$4,887<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $1,629/bed</span>
-    </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 Mirabella, 13701 Marina Pointe Dr, MDR</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">3 bed · 2 bath · 1,685 sqft</div>
-    <a href="https://www.redfin.com/CA/Marina-del-Rey/Mirabella/apartment/8136417" target="_blank" rel="noopener" style="display:inline-block;background:#A02021;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://ssl.cdn-redfin.com/photo/rent/e3f5184c-277f-4f81-a909-bc76dcda6263/islphoto/genIsl.0_3.webp" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#A02021;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">REDFIN</div>
-  </div>
-  <div style="padding:16px 20px">
-    
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$4,932<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $1,644/bed</span>
-    </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 C1 by CLG, Marina del Rey</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">3 bed · 2 bath · 1,130 sqft</div>
-    <a href="https://www.redfin.com/CA/Marina-del-Rey/C1-by-CLG/apartment/167414324" target="_blank" rel="noopener" style="display:inline-block;background:#A02021;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://photos.zillowstatic.com/fp/72f55c1e920e8a17f76e6ae21d59012c-p_e.jpg" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#006AFF;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">ZILLOW</div>
-  </div>
-  <div style="padding:16px 20px">
-    
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$4,995<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $1,665/bed</span>
-    </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 354-356 4th Ave #1, Venice</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">3 bed · 2 bath · 1,100 sqft</div>
-    <a href="https://www.zillow.com/apartments/venice-ca/4th-ave/Cp7CNM/" target="_blank" rel="noopener" style="display:inline-block;background:#006AFF;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://ssl.cdn-redfin.com/photo/rent/b04e03c4-d0f7-4db4-85f5-aaa497cfe691/islphoto/genIsl.0_4.webp" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#A02021;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">REDFIN</div>
-  </div>
-  <div style="padding:16px 20px">
-    
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$5,099<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $1,700/bed</span>
-    </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 Jefferson at Marina del Rey, 3221 Carter Ave</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">3 bed · 2 bath · 1,628 sqft</div>
-    <a href="https://www.redfin.com/CA/Marina-del-Rey/Jefferson-at-Marina-del-Rey/apartment/21881641" target="_blank" rel="noopener" style="display:inline-block;background:#A02021;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://ssl.cdn-redfin.com/photo/rent/fa5f92a8-3b76-4857-b027-016bac1c67f8/islphoto/genIsl.0_1.webp" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#A02021;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">REDFIN</div>
-  </div>
-  <div style="padding:16px 20px">
-    
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$5,325<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $1,775/bed</span>
-    </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 Tribeca Urban Apartments, Marina del Rey</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">3 bed · 3 bath · 1,365 sqft</div>
-    <a href="https://www.redfin.com/CA/Marina-Del-Rey/Tribeca-Urban-Apartments/apartment/177386554" target="_blank" rel="noopener" style="display:inline-block;background:#A02021;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://photos.zillowstatic.com/fp/6bfa866e2704d9354957cc3381c44996-p_e.jpg" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#006AFF;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">ZILLOW</div>
-  </div>
-  <div style="padding:16px 20px">
-    
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$5,395<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $1,798/bed</span>
-    </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 634 Flower Ave #2, Venice</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">3 bed · 2 bath</div>
-    <a href="https://www.zillow.com/homedetails/634-Flower-Ave-2-Venice-CA-90291/2063061989_zpid/" target="_blank" rel="noopener" style="display:inline-block;background:#006AFF;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://photos.zillowstatic.com/fp/40da5f16c749465850e632c5a6716f78-p_e.jpg" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#006AFF;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">ZILLOW</div>
-  </div>
-  <div style="padding:16px 20px">
-    
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$5,449<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $1,816/bed</span>
-    </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 Lincoln Place, 1050 Frederick St, Venice</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">3 bed · 2 bath</div>
-    <a href="https://www.zillow.com/apartments/venice-ca/lincoln-place/5h9prm/" target="_blank" rel="noopener" style="display:inline-block;background:#006AFF;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://images.craigslist.org/00x0x_jJhXhJ6AYRR_0CI0t2_600x450.jpg" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#8B45A6;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">CRAIGSLIST</div>
-  </div>
-  <div style="padding:16px 20px">
-    <div style="background:#fffbeb;color:#92400e;padding:6px 12px;border-radius:6px;font-size:13px;margin-bottom:10px;font-weight:500">Designer finishes, private yard</div>
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$5,450<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $1,817/bed</span>
-    </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 Venice Blvd area, Venice</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">3 bed · 1 bath</div>
-    <a href="https://losangeles.craigslist.org/wst/apa/d/los-angeles-bright-designer-venice/7914520424.html" target="_blank" rel="noopener" style="display:inline-block;background:#8B45A6;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://ssl.cdn-redfin.com/photo/rent/fa5f92a8-3b76-4857-b027-016bac1c67f8/islphoto/genIsl.0_1.webp" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#A02021;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">REDFIN</div>
-  </div>
-  <div style="padding:16px 20px">
-    
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$5,504<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $1,835/bed</span>
-    </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 Stella, Marina del Rey</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">3 bed · 2 bath · 1,406 sqft</div>
-    <a href="https://www.redfin.com/CA/Marina-del-Rey/Stella-CA/apartment/143514372" target="_blank" rel="noopener" style="display:inline-block;background:#A02021;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://ssl.cdn-redfin.com/photo/rent/63a52186-d9bd-4f04-a584-655f82486597/islphoto/genIsl.0_1.webp" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#A02021;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">REDFIN</div>
-  </div>
-  <div style="padding:16px 20px">
-    <div style="background:#fffbeb;color:#92400e;padding:6px 12px;border-radius:6px;font-size:13px;margin-bottom:10px;font-weight:500">Abbot Kinney location!</div>
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$5,550<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $1,850/bed</span>
-    </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 2527 Abbot Kinney Blvd, Venice</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">3 bed · 2 bath · 1,400 sqft</div>
-    <a href="https://www.redfin.com/CA/Venice/2527-Abbot-Kinney-Blvd-90291/unit-2527/apartment/193662113" target="_blank" rel="noopener" style="display:inline-block;background:#A02021;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://photos.zillowstatic.com/fp/3c8b553feaa067f5ebce226dd80e3e69-p_e.jpg" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#006AFF;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">ZILLOW</div>
-  </div>
-  <div style="padding:16px 20px">
-    
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$6,150<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $1,538/bed</span>
-    </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 631 Indiana Ave, Venice</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">4 bed · 2 bath</div>
-    <a href="https://www.zillow.com/apartments/venice-ca/631-indiana-avenue-631-frnt/5XtZPW/" target="_blank" rel="noopener" style="display:inline-block;background:#006AFF;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://images.craigslist.org/00R0R_gT0bCCe2G6z_0CI0t2_600x450.jpg" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#8B45A6;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">CRAIGSLIST</div>
-  </div>
-  <div style="padding:16px 20px">
-    <div style="background:#fffbeb;color:#92400e;padding:6px 12px;border-radius:6px;font-size:13px;margin-bottom:10px;font-weight:500">Newly renovated bungalow</div>
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$6,200<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $2,067/bed</span>
-    </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 2416 Boone Ave, Venice</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">3 bed · 1.5 bath</div>
-    <a href="https://losangeles.craigslist.org/wst/apa/d/venice-2416-boone-ave-newly-renov/7914274983.html" target="_blank" rel="noopener" style="display:inline-block;background:#8B45A6;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://ssl.cdn-redfin.com/photo/rent/22ea8095-32ae-452c-8703-31f3b13da542/islphoto/genIsl.0_8.webp" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#A02021;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">REDFIN</div>
-  </div>
-  <div style="padding:16px 20px">
-    
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$6,266<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $2,089/bed</span>
-    </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 Mariners Village, 4600 Via Marina, MDR</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">3 bed · 2 bath · 1,408 sqft</div>
-    <a href="https://www.redfin.com/CA/Marina-Del-Rey/Mariners-Village/apartment/177698515" target="_blank" rel="noopener" style="display:inline-block;background:#A02021;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://images.craigslist.org/00U0U_gdbLCqsGNJW_0CI0t2_600x450.jpg" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#8B45A6;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">CRAIGSLIST</div>
-  </div>
-  <div style="padding:16px 20px">
-    <div style="background:#fffbeb;color:#92400e;padding:6px 12px;border-radius:6px;font-size:13px;margin-bottom:10px;font-weight:500">🎁 2 MONTHS FREE</div>
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$6,266<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $2,089/bed</span>
-    </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 4600 Via Marina, Marina del Rey (Mariners Village)</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">3 bed · 2 bath · 1,408 sqft</div>
-    <a href="https://losangeles.craigslist.org/wst/apa/d/marina-del-rey-two-month-free-spacious/7914970383.html" target="_blank" rel="noopener" style="display:inline-block;background:#8B45A6;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://ssl.cdn-redfin.com/photo/rent/1c1902d3-5bf3-4cd9-ab35-40c349c600ca/islphoto/genIsl.0_4.webp" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#A02021;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">REDFIN</div>
-  </div>
-  <div style="padding:16px 20px">
-    
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$6,291<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $2,097/bed</span>
-    </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 Breakwater at Marina del Rey</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">3 bed · 2 bath · 1,875 sqft</div>
-    <a href="https://www.redfin.com/CA/Marina-Del-Rey/Breakwater-at-Marina-del-Rey/apartment/177406986" target="_blank" rel="noopener" style="display:inline-block;background:#A02021;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://photos.zillowstatic.com/fp/fbb368eb726d0417fe9c1904eab61a9c-p_e.jpg" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#006AFF;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">ZILLOW</div>
-  </div>
-  <div style="padding:16px 20px">
-    
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$6,500<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $2,167/bed</span>
-    </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 528-530 Westminster Ave, Venice</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">3 bed · 2 bath · 1,350 sqft</div>
-    <a href="https://www.zillow.com/apartments/venice-ca/ve0528-(rso)/CmtqzF/" target="_blank" rel="noopener" style="display:inline-block;background:#006AFF;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://images.craigslist.org/01313_47YbPCOdKPP_0CI0t2_600x450.jpg" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#8B45A6;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">CRAIGSLIST</div>
-  </div>
-  <div style="padding:16px 20px">
-    <div style="background:#fffbeb;color:#92400e;padding:6px 12px;border-radius:6px;font-size:13px;margin-bottom:10px;font-weight:500">Split-level townhouse, 2-car garage</div>
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$7,245<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $2,415/bed</span>
-    </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 4631 Alla Rd #8, Marina del Rey</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">3 bed · 2.5 bath</div>
-    <a href="https://losangeles.craigslist.org/wst/apa/d/marina-del-rey-layers-of-love-split/7915091470.html" target="_blank" rel="noopener" style="display:inline-block;background:#8B45A6;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://photos.zillowstatic.com/fp/d57267d746a924cd7d9f94bcf13dc69e-p_e.jpg" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#006AFF;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">ZILLOW</div>
-  </div>
-  <div style="padding:16px 20px">
-    
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$7,990<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $1,998/bed</span>
-    </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 531 Indiana Ave #A, Venice</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">4 bed · 4 bath · 2,100 sqft</div>
-    <a href="https://www.zillow.com/homedetails/531-Indiana-Ave-A-Venice-CA-90291/452037674_zpid/" target="_blank" rel="noopener" style="display:inline-block;background:#006AFF;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://photos.zillowstatic.com/fp/59f4d9eddd848a951aa55a141e008a9e-p_e.jpg" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#006AFF;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">ZILLOW</div>
-  </div>
-  <div style="padding:16px 20px">
-    
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$8,850<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $2,950/bed</span>
-    </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 2436 Walnut Ave, Venice</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">3 bed · 2 bath · 1,555 sqft</div>
-    <a href="https://www.zillow.com/homedetails/2436-Walnut-Ave-Venice-CA-90291/20448922_zpid/" target="_blank" rel="noopener" style="display:inline-block;background:#006AFF;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div><div style="background:white;border-radius:12px;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-  <div style="position:relative;height:200px;overflow:hidden;background:#e2e8f0">
-    <img src="https://images.craigslist.org/00n0n_5VaZ4gOvxnC_0CI0t2_600x450.jpg" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.style.background='linear-gradient(135deg,#667eea,#764ba2)';this.style.display='none'" loading="lazy"/>
-    <div style="position:absolute;top:10px;left:10px;background:#8B45A6;color:white;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:700;letter-spacing:0.5px">CRAIGSLIST</div>
-  </div>
-  <div style="padding:16px 20px">
-    <div style="background:#fffbeb;color:#92400e;padding:6px 12px;border-radius:6px;font-size:13px;margin-bottom:10px;font-weight:500">3-story w/ rooftop deck</div>
-    <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px">
-      <span style="font-size:1.5em;font-weight:800">$10,995<span style="font-size:0.5em;font-weight:400;color:#718096">/mo</span></span>
-      <span style="color:#27ae60;font-weight:700;font-size:0.85em">✅ $2,749/bed</span>
-    </div>
-    <div style="color:#4a5568;margin:6px 0 4px;font-size:0.95em">📍 Venice Ave & Lincoln Blvd, Venice</div>
-    <div style="color:#a0aec0;font-size:0.85em;margin-bottom:12px">4 bed · 4 bath · 3,000 sqft</div>
-    <a href="https://losangeles.craigslist.org/wst/apa/d/venice-contemporary-townhouse-venice/7911757823.html" target="_blank" rel="noopener" style="display:inline-block;background:#8B45A6;color:white;padding:8px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.85em">View Listing →</a>
-  </div>
-</div>
-<div style="background:white;border-radius:12px;padding:20px;box-shadow:0 1px 8px rgba(0,0,0,0.06);margin-bottom:20px">
-<h2 style="font-size:1.1em;margin-bottom:12px">🎯 Top Picks</h2>
-<div style="margin-bottom:10px;font-size:0.9em"><strong>🏆 Best Value:</strong> Belle Fontaine, MDR — $3,557/mo ($1,186/bed). Cheapest 3BR on the list.</div>
-<div style="margin-bottom:10px;font-size:0.9em"><strong>💎 Best Deal:</strong> Mariners Village via Craigslist — $6,266/mo + 2 months free (effective ~$5,222)</div>
-<div style="margin-bottom:10px;font-size:0.9em"><strong>🏖️ Best Location:</strong> 2527 Abbot Kinney Blvd — $5,550/mo ($1,850/bed). On Abbot Kinney!</div>
-<div style="font-size:0.9em"><strong>✨ Best for Hosting:</strong> Alla Rd Townhouse, MDR — $7,245/mo. Split-level, garage, pool.</div></div>
-<div style="text-align:center;color:#a0aec0;font-size:0.75em;padding:16px">Compiled by Hanuman 🐒 · Redfin + Zillow + Craigslist<br>Updated Feb 15, 2026 · Budget: &lt;$3,500/bed</div>
-</div></body></html>
+</body>
+</html>
