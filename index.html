@@ -399,19 +399,51 @@
     </div>
     
     <div class="container">
-            <div class="listing-content">
-                <div class="type-badge house">🏠 House</div>
-                <div class="price-section">
-                    <div class="per-bed-price">$1,332/bed</div>
-                    <div class="budget-indicator good">○</div>
+        
+                <!-- Listing 10: Lincoln Place - $1,816/bed - APARTMENT -->
+        <div class="listing-card">
+            <div class="photo-gallery-container single-photo">
+                <div class="photo-gallery" data-gallery="lincoln">
+                    <img src="https://photos.zillowstatic.com/fp/40da5f16c749465850e632c5a6716f78-p_e.jpg" alt="Lincoln Place">
                 </div>
-                <div class="price-details">$3,995/mo total · 3bd/1ba · 1,100 sqft</div>
-                <div class="address">Beethoven St, Venice/Mar Vista</div>
-                <div class="source-badge craigslist">Craigslist</div>
-                <div class="special-note">🏡 Spanish charmer with huge yard, bamboo privacy hedge, brand new bathroom</div>
-                <a href="https://losangeles.craigslist.org/wst/apa/d/los-angeles-3bd-1bth-spanish-style/7913653193.html" target="_blank" rel="noopener" class="view-btn craigslist">View Listing →</a>
+            </div>
+            <div class="listing-content">
+                <div class="type-badge apartment">🏢 Apartment</div>
+                <div class="price-section">
+                    <div class="per-bed-price">$1,816/bed</div>
+                    <div class="budget-indicator expensive">⚠</div>
+                </div>
+                <div class="price-details">$5,449/mo total · 3bd/2ba</div>
+                <div class="address">Lincoln Place, 1050 Frederick St, Venice</div>
+                <div class="source-badge zillow">Zillow</div>
+                <a href="https://www.zillow.com/apartments/venice-ca/lincoln-place/5h9prm/" target="_blank" rel="noopener" class="view-btn zillow">View Listing →</a>
             </div>
         </div>
+
+                <!-- Listing 11: Venice Blvd area - $1,817/bed - HOUSE -->
+        <div class="listing-card">
+            <div class="photo-gallery-container">
+                <div class="photo-gallery" data-gallery="veniceblvd">
+                    <img src="https://images.craigslist.org/00Z0Z_hkQRh1pXCJG_0cm083_600x450.jpg" alt="Venice Blvd">
+                    <img src="https://images.craigslist.org/00V0V_iKk4TouQYK4_0cU08B_600x450.jpg" alt="Venice Blvd">
+                    <img src="https://images.craigslist.org/00Y0Y_kEXSEbGy7e_0cU08B_600x450.jpg" alt="Venice Blvd">
+                    <img src="https://images.craigslist.org/00p0p_f3BQmR0Nrp1_0cU08B_600x450.jpg" alt="Venice Blvd">
+                    <img src="https://images.craigslist.org/01717_lr2UCAbyvHN_0cU08B_600x450.jpg" alt="Venice Blvd">
+                </div>
+                <button class="gallery-nav prev" onclick="scrollGallery('veniceblvd', -1)">
+                    <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                </button>
+                <button class="gallery-nav next" onclick="scrollGallery('veniceblvd', 1)">
+                    <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </button>
+                <div class="gallery-dots">
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
             <div class="listing-content">
                 <div class="type-badge house">🏠 House</div>
                 <div class="price-section">
@@ -425,8 +457,8 @@
                 <a href="https://losangeles.craigslist.org/wst/apa/d/los-angeles-bright-designer-venice/7914520424.html" target="_blank" rel="noopener" class="view-btn craigslist">View Listing →</a>
             </div>
         </div>
-        
-        <!-- Listing 12: Stella - $1,835/bed - APARTMENT -->
+
+                <!-- Listing 12: Stella - $1,835/bed - APARTMENT -->
         <div class="listing-card">
             <div class="photo-gallery-container single-photo">
                 <div class="photo-gallery" data-gallery="stella">
@@ -445,8 +477,8 @@
                 <a href="https://www.redfin.com/CA/Marina-del-Rey/Stella-CA/apartment/143514372" target="_blank" rel="noopener" class="view-btn redfin">View Listing →</a>
             </div>
         </div>
-        
-        <!-- Listing 13: 2527 Abbot Kinney - $1,850/bed - APARTMENT -->
+
+                <!-- Listing 13: 2527 Abbot Kinney - $1,850/bed - APARTMENT -->
         <div class="listing-card">
             <div class="photo-gallery-container single-photo">
                 <div class="photo-gallery" data-gallery="abbot">
@@ -466,8 +498,8 @@
                 <a href="https://www.redfin.com/CA/Venice/2527-Abbot-Kinney-Blvd-90291/unit-2527/apartment/193662113" target="_blank" rel="noopener" class="view-btn redfin">View Listing →</a>
             </div>
         </div>
-        
-        <!-- Listing 14: 531 Indiana Ave - $1,998/bed (4bd) - APARTMENT -->
+
+                <!-- Listing 14: 531 Indiana Ave - $1,998/bed (4bd) - APARTMENT -->
         <div class="listing-card">
             <div class="photo-gallery-container single-photo">
                 <div class="photo-gallery" data-gallery="indiana531">
@@ -486,8 +518,8 @@
                 <a href="https://www.zillow.com/homedetails/531-Indiana-Ave-A-Venice-CA-90291/452037674_zpid/" target="_blank" rel="noopener" class="view-btn zillow">View Listing →</a>
             </div>
         </div>
-        
-        <!-- Listing 15: 2416 Boone Ave - $3,100/bed - HOUSE -->
+
+                <!-- Listing 15: 2416 Boone Ave - $2,067/bed - HOUSE -->
         <div class="listing-card">
             <div class="photo-gallery-container">
                 <div class="photo-gallery" data-gallery="boone">
@@ -514,18 +546,18 @@
             <div class="listing-content">
                 <div class="type-badge house">🏠 House</div>
                 <div class="price-section">
-                    <div class="per-bed-price">$3,100/bed</div>
+                    <div class="per-bed-price">$2,067/bed</div>
                     <div class="budget-indicator good">○</div>
                 </div>
-                <div class="price-details">$6,200/mo total · 2bd/1.5ba</div>
+                <div class="price-details">$6,200/mo total · 3bd/1.5ba</div>
                 <div class="address">2416 Boone Ave, Venice</div>
                 <div class="source-badge craigslist">Craigslist</div>
                 <div class="special-note">🔨 Newly renovated bungalow, hardwood floors, fireplace, huge backyard deck</div>
                 <a href="https://losangeles.craigslist.org/wst/apa/d/venice-2416-boone-ave-newly-renov/7914274983.html" target="_blank" rel="noopener" class="view-btn craigslist">View Listing →</a>
             </div>
         </div>
-        
-        <!-- Listing 16: Mariners Village - $2,089/bed - APARTMENT -->
+
+                <!-- Listing 16: Mariners Village - $2,089/bed - APARTMENT -->
         <div class="listing-card">
             <div class="photo-gallery-container">
                 <div class="photo-gallery" data-gallery="mariners">
@@ -562,8 +594,8 @@
                 <a href="https://www.redfin.com/CA/Marina-Del-Rey/Mariners-Village/apartment/177698515" target="_blank" rel="noopener" class="view-btn redfin">View Listing →</a>
             </div>
         </div>
-        
-        <!-- Listing 17: Breakwater - $2,097/bed - APARTMENT -->
+
+                <!-- Listing 17: Breakwater - $2,097/bed - APARTMENT -->
         <div class="listing-card">
             <div class="photo-gallery-container single-photo">
                 <div class="photo-gallery" data-gallery="breakwater">
@@ -582,8 +614,8 @@
                 <a href="https://www.redfin.com/CA/Marina-Del-Rey/Breakwater-at-Marina-del-Rey/apartment/177406986" target="_blank" rel="noopener" class="view-btn redfin">View Listing →</a>
             </div>
         </div>
-        
-        <!-- Listing 18: 528-530 Westminster - $2,167/bed - APARTMENT -->
+
+                <!-- Listing 18: 528-530 Westminster - $2,167/bed - APARTMENT -->
         <div class="listing-card">
             <div class="photo-gallery-container single-photo">
                 <div class="photo-gallery" data-gallery="westminster">
@@ -602,8 +634,8 @@
                 <a href="https://www.zillow.com/apartments/venice-ca/ve0528-(rso)/CmtqzF/" target="_blank" rel="noopener" class="view-btn zillow">View Listing →</a>
             </div>
         </div>
-        
-        <!-- Listing 19: 4631 Alla Rd - $2,415/bed - TOWNHOUSE -->
+
+                <!-- Listing 19: 4631 Alla Rd - $2,415/bed - TOWNHOUSE -->
         <div class="listing-card">
             <div class="photo-gallery-container">
                 <div class="photo-gallery" data-gallery="alla">
@@ -640,8 +672,8 @@
                 <a href="https://losangeles.craigslist.org/wst/apa/d/marina-del-rey-layers-of-love-split/7915091470.html" target="_blank" rel="noopener" class="view-btn craigslist">View Listing →</a>
             </div>
         </div>
-        
-        <!-- Listing 20: Venice Ave & Lincoln - $2,944/bed (4bd) - TOWNHOUSE -->
+
+                <!-- Listing 20: Venice Ave & Lincoln - $2,749/bed (4bd) - TOWNHOUSE -->
         <div class="listing-card">
             <div class="photo-gallery-container">
                 <div class="photo-gallery" data-gallery="veniceave">
@@ -668,18 +700,18 @@
             <div class="listing-content">
                 <div class="type-badge townhouse">🏘️ Townhouse</div>
                 <div class="price-section">
-                    <div class="per-bed-price">$2,944/bed</div>
+                    <div class="per-bed-price">$2,749/bed</div>
                     <div class="budget-indicator sweet-spot">✓</div>
                 </div>
-                <div class="price-details">$11,775/mo total · 4bd/4ba · 3,000 sqft</div>
+                <div class="price-details">$10,995/mo total · 4bd/4ba · 3,000 sqft</div>
                 <div class="address">Venice Ave & Lincoln Blvd, Venice</div>
                 <div class="source-badge craigslist">Craigslist</div>
                 <div class="special-note">🌇 3-story contemporary townhouse with rooftop deck, tandem parking</div>
                 <a href="https://losangeles.craigslist.org/wst/apa/d/venice-contemporary-townhouse-venice/7911757823.html" target="_blank" rel="noopener" class="view-btn craigslist">View Listing →</a>
             </div>
         </div>
-        
-        <!-- Listing 21: 2436 Walnut Ave - $2,950/bed - APARTMENT -->
+
+                <!-- Listing 21: 2436 Walnut Ave - $2,950/bed - APARTMENT -->
         <div class="listing-card">
             <div class="photo-gallery-container single-photo">
                 <div class="photo-gallery" data-gallery="walnut">
@@ -698,6 +730,7 @@
                 <a href="https://www.zillow.com/homedetails/2436-Walnut-Ave-Venice-CA-90291/20448922_zpid/" target="_blank" rel="noopener" class="view-btn zillow">View Listing →</a>
             </div>
         </div>
+
         
         <!-- Top Picks Section -->
         <div class="top-picks">
@@ -710,6 +743,8 @@
                 <li><strong>Luxury Pick:</strong> Venice Ave Contemporary ($2,944/bed) — Modern 3-story w/ rooftop deck</li>
             </ul>
         </div>
+        
+    </div>
     
     <script>
         function scrollGallery(galleryName, direction) {
@@ -746,4 +781,5 @@
         });
     </script>
 </body>
+
 </html>
